@@ -1,0 +1,25 @@
+Clipkin software license
+
+Copyright © 2026 Clipkin LLC. All rights reserved.
+
+This repository holds the compiled Clipkin command-line tool, Studio and the Clipkin Skill (together,
+"the Software"). The Software is proprietary. It is not open source.
+
+You may install and run the Software, on as many of your own computers as you like, to make,
+preview and edit videos for yourself or your organization, including commercially, whether
+generation is billed to a Clipkin account or to your own model provider accounts. You may give the
+Skill to your AI agents for that purpose. Videos and other outputs you make are yours.
+
+You may not, except as the law expressly allows despite this limit: copy or redistribute the
+Software or any part of it other than by installing it from this repository as described in
+README.md; sell, rent or sublicense it; offer it, or a service built on it, to others as a hosted
+video-making service; modify it, or decompile, disassemble or otherwise reverse-engineer it; or
+remove or change this notice.
+
+The Software is provided "as is", without warranty of any kind, express or implied, including the
+warranties of merchantability, fitness for a particular purpose and non-infringement. In no event
+shall Clipkin LLC be liable for any claim, damages or other liability arising from the Software or
+its use, to the fullest extent the law allows. Use of a Clipkin account is also governed by the
+Terms at https://clipkin.com/terms.
+
+Third-party packages the Software installs keep their own licenses, listed in their package metadata.

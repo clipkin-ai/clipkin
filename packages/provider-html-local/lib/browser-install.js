@@ -1,0 +1,1 @@
+import{h as r}from"./c-53RJXCMO.js";var[e,a,s]=process.argv.slice(2);if(process.argv.length<4||process.argv.length>5||!e||!a)throw new Error("Usage: give the HTML browser cache directory, the exact version, and optionally an archive base URL");await r(e,a,s);

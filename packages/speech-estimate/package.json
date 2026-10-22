@@ -1,0 +1,13 @@
+{
+  "name": "@clipkin/speech-estimate",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cli": "./lib/cli.js"
+  },
+  "dependencies": {
+    "cmu-pronouncing-dictionary": "3.0.0"
+  }
+}

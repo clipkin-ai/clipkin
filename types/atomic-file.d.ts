@@ -1,0 +1,2 @@
+declare function replaceFile(from: string, to: string): Promise<void>;
+export { replaceFile };

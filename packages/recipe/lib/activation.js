@@ -1,0 +1,1 @@
+import{d as e,h as t}from"./c-ESZAYRCN.js";import{createAuthorFrontendFacet as o}from"@clipkin/author";var r={format:"clipkin.package@1",modules:[{manifest:e}],facets:[o(t)]},i=r;export{r as clipkinPackage,i as default};

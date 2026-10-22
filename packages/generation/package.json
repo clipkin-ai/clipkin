@@ -1,0 +1,13 @@
+{
+  "name": "@clipkin/generation",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.js",
+    "./model": "./lib/model.js"
+  },
+  "clipkin": {
+    "activation": "./lib/activation.js"
+  }
+}

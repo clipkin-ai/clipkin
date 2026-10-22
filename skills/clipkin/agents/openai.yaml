@@ -1,0 +1,4 @@
+interface:
+  display_name: "Clipkin"
+  short_description: "Direct, produce and deliver videos from a brief or a reference"
+  default_prompt: "Use $clipkin to make or revise the video described in my brief, using any references I supplied."

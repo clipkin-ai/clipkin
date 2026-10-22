@@ -1,0 +1,22 @@
+{
+  "name": "@clipkin/whisperx",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cli": "./lib/cli.js"
+  },
+  "clipkin": {
+    "activation": "./lib/activation.js"
+  },
+  "dependencies": {
+    "@clipkin/media": "^1.0.0",
+    "@clipkin/media-local": "^1.0.0",
+    "@clipkin/narrative": "^1.0.0",
+    "@clipkin/narrative-speech-alignment": "^1.0.0",
+    "@clipkin/narrative-temporal": "^1.0.0",
+    "@clipkin/speech-evidence": "^1.0.0",
+    "@clipkin/temporal": "^1.0.0"
+  }
+}

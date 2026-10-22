@@ -1,0 +1,12 @@
+{
+  "format": "kinora.result-value@1",
+  "value": {
+    "frameCount": 240,
+    "frameRate": {
+      "denominator": 1,
+      "numerator": 30
+    },
+    "id": "animation"
+  },
+  "resources": []
+}

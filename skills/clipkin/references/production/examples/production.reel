@@ -1,0 +1,74 @@
+<?reel using="@clipkin/markup@1"?>
+<reel>
+  <import as="audio" from="@clipkin/audio-track@1"/>
+  <import as="visual" from="@clipkin/visual-track@1"/>
+  <import from="@clipkin/script@1"/>
+  <import as="text" from="@clipkin/text@1"/>
+  <import as="seedance" from="@clipkin/seedance@1"/>
+  <import as="mediaop" from="@clipkin/media-operations@1"/>
+  <import as="whisperx" from="@clipkin/whisperx@1"/>
+  <import as="semantic" from="@clipkin/narrative-temporal@1"/>
+  <import as="media" from="@clipkin/media@1"/>
+  <import as="time" from="@clipkin/timeline-author@1"/>
+  <import as="space" from="@clipkin/spatial@1"/>
+  <import as="fonts" from="@clipkin/fontsource@1"/>
+  <import as="typo" from="@clipkin/text-fine@1"/>
+  <import as="film" from="@clipkin/film@1"/>
+  <import as="html" from="@clipkin/html-video@1"/>
+  <import as="look" source="./look.grade"/>
+  <import as="kit" source="./direction.grade"/>
+
+  <script id="story">
+    <opening><HOST>Watch @{proof}the part that matters.@{/proof}</opening>
+  </script>
+  <space:Canvas id="canvas" width="720" height="1280"/>
+  <time:Clock id="clock" frame-rate="30"/>
+  <space:Frame id="full" within={canvas.bounds}
+    left="0%" top="0%" right="100%" bottom="100%"/>
+  <space:Frame id="title-frame" within={canvas.bounds}
+    left="8%" top="12%" right="92%" bottom="30%"/>
+
+  <text:Value id="direction">
+    A vertical phone-video close view of a maker at a cluttered workbench, lit by a window.
+    HOST is that maker, talking straight to the lens with easy, unhurried confidence.
+  </text:Value>
+  <text:Render id="prompt" template={kit.performance}>
+    <text:Set name="direction" text={direction}/>
+    <text:Set name="dialogue" text={story.segment.opening.dialogue}/>
+  </text:Render>
+  <seedance:TextVideo id="performance" model="mini" prompt={prompt}
+    duration="5" aspect-ratio="9:16" generate-audio="true"/>
+  <mediaop:Normalize id="performance-media" source={performance.video} clock={clock}
+    video="primary-moving" audio="default" span-authority="video"/>
+  <whisperx:Alignment id="opening-alignment" narrative={story}
+    segment={story.segment.opening} media={performance-media.media}
+    domain={performance-media.domain} language="en"/>
+  <time:Timeline id="speech" clock={clock} end="opening.end">
+    <time:Window id="opening" from="start" for={performance-media.extent}/>
+  </time:Timeline>
+  <semantic:Projection id="story-time" narrative={story} timeline={speech.timeline}>
+    <semantic:Map alignment={opening-alignment.alignment} domain={performance-media.domain} window={speech.opening}/>
+  </semantic:Projection>
+  <semantic:Window id="proof" projection={story-time} during={story.selection.proof}/>
+  <audio:Track id="speech-sound" timeline={speech.timeline}>
+    <audio:Clip id="opening-source" source={performance-media.media} during={speech.opening}/>
+  </audio:Track>
+  <visual:Track id="speech-picture" timeline={speech.timeline}>
+    <visual:Clip id="opening-source" media={performance-media.media} during={speech.opening} frame={full} z="10" fit="cover"/>
+  </visual:Track>
+
+  <fonts:Face id="title-font" package="@fontsource-variable/inter" weight="700" style="normal"/>
+  <typo:Style id="title-style" recipe={look.text.title} font={title-font}>
+    <typo:Fill color="#F1E7D8"/>
+  </typo:Style>
+  <typo:Flow id="proof-label" timeline={speech.timeline} within={title-frame}
+    style={title-style} z="20" during={proof}>The part that matters</typo:Flow>
+  <film:Film id="main" canvas={canvas.canvas} timeline={speech.timeline} appearance={look.film.main}>
+    <film:Track source={speech-picture.visual}/>
+    <film:Track source={speech-sound.audio}/>
+    <film:Track source={proof-label.visual}/>
+  </film:Film>
+  <html:Video id="final" composition={main.composition} timeline={speech.timeline}/>
+  <html:Video id="detail" composition={main.composition} timeline={speech.timeline}
+    start-frame="30" end-frame-exclusive="90"/>
+</reel>

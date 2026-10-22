@@ -1,0 +1,14 @@
+{
+  "name": "@clipkin/result",
+  "version": "0.0.0-dev",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.js",
+    "./node": "./lib/node.js"
+  },
+  "dependencies": {
+    "@clipkin/protocol": "*",
+    "@clipkin/atomic-file": "*"
+  }
+}

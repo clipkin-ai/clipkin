@@ -1,0 +1,27 @@
+{
+  "name": "@clipkin/cli",
+  "version": "0.0.0-dev",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./lib/launch-cli.js"
+  },
+  "dependencies": {
+    "@clipkin/result": "*",
+    "@clipkin/compiler": "*",
+    "@clipkin/producer": "*",
+    "@clipkin/kernel": "*",
+    "@clipkin/executor": "*",
+    "@clipkin/author": "*",
+    "@clipkin/loader": "*",
+    "@clipkin/project": "*",
+    "@clipkin/protocol": "*",
+    "@clipkin/run": "*",
+    "@clipkin/runtime": "*",
+    "@clipkin/source": "*",
+    "@clipkin/admission": "*",
+    "@clipkin/workspace": "*",
+    "typescript": "5.9.3",
+    "@clipkin/pricing": "*"
+  }
+}

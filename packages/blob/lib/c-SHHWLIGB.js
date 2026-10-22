@@ -1,0 +1,1 @@
+var e={name:"@clipkin/blob",version:"1"},o={blob:{module:e,name:"Blob"}},n={format:"clipkin.module@1",name:e.name,version:e.version,dependencies:[],types:[{name:o.blob.name}],capabilities:[],producers:[]},s={module:e};export{e as a,o as b,n as c,s as d};

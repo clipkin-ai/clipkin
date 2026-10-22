@@ -1,0 +1,14 @@
+{
+  "name": "@clipkin/endpoint",
+  "version": "0.0.0-dev",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.js",
+    "./http": "./lib/http.js"
+  },
+  "dependencies": {
+    "@clipkin/protocol": "*",
+    "@clipkin/runtime": "*"
+  }
+}

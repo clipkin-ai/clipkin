@@ -1,0 +1,24 @@
+{
+  "name": "@clipkin/media-local",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cli": "./lib/cli.js",
+    "./files": "./lib/files.js"
+  },
+  "clipkin": {
+    "activation": "./lib/activation.js"
+  },
+  "dependencies": {
+    "@clipkin/media": "^1.0.0",
+    "@clipkin/media-operations": "^1.0.0",
+    "@clipkin/speech-evidence": "^1.0.0",
+    "@clipkin/timeline": "^1.0.0",
+    "sharp": "0.35.4"
+  },
+  "peerDependencies": {
+    "@clipkin/runtime-local": "^1.0.0"
+  }
+}

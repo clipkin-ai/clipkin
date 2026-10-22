@@ -1,0 +1,8 @@
+{
+  "format": "clipkin.runtime-local@1",
+  "dataRoot": ".clipkin/runtimes/local",
+  "endpoints": {
+    "media.local": { "use": "@clipkin/media-local", "config": { "defaultConcurrency": 2 } },
+    "html.local": { "use": "@clipkin/provider-html-local", "config": { "workers": 2, "defaultConcurrency": 1 } }
+  }
+}

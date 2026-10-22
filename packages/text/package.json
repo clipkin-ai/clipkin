@@ -1,0 +1,22 @@
+{
+  "name": "@clipkin/text",
+  "version": "0.0.0-dev",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.js"
+  },
+  "clipkin": {
+    "activation": "./lib/activation.js"
+  },
+  "dependencies": {
+    "@clipkin/producer": "*",
+    "@clipkin/kernel": "*",
+    "@clipkin/author": "*",
+    "@clipkin/markup": "*",
+    "@clipkin/protocol": "*",
+    "@clipkin/recipe": "*",
+    "@clipkin/source": "*",
+    "@clipkin/admission": "*"
+  }
+}

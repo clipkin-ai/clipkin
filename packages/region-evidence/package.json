@@ -1,0 +1,16 @@
+{
+  "name": "@clipkin/region-evidence",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.js"
+  },
+  "clipkin": {
+    "activation": "./lib/activation.js"
+  },
+  "dependencies": {
+    "@clipkin/spatial": "^1.0.0",
+    "@clipkin/timeline": "^1.0.0"
+  }
+}

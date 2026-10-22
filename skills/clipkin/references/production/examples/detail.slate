@@ -1,0 +1,12 @@
+<?reel using="@clipkin/markup/run@1"?>
+<slate version="1">
+  <author source="./production.reel"/>
+  <target output="detail.video"/>
+  <!-- bld_... stands for the Build whose Result holds the prepared performance; put the real id here. -->
+  <build-record id="kept-media" build="bld_..." output="performance-media.media"/>
+  <build-record id="kept-domain" build="bld_..." output="performance-media.domain"/>
+  <build-record id="kept-alignment" build="bld_..." output="opening-alignment.alignment"/>
+  <satisfy output="performance-media.media" candidate="kept-media"/>
+  <satisfy output="performance-media.domain" candidate="kept-domain"/>
+  <satisfy output="opening-alignment.alignment" candidate="kept-alignment"/>
+</slate>

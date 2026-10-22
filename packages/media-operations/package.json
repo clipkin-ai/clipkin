@@ -1,0 +1,18 @@
+{
+  "name": "@clipkin/media-operations",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.js"
+  },
+  "clipkin": {
+    "activation": "./lib/activation.js"
+  },
+  "dependencies": {
+    "@clipkin/composition": "^1.0.0",
+    "@clipkin/media": "^1.0.0",
+    "@clipkin/temporal": "^1.0.0",
+    "@clipkin/timeline": "^1.0.0"
+  }
+}

@@ -1,0 +1,4 @@
+<?reel using="@clipkin/recipe@1"?>
+<sheet version="1">
+  film.main { background: #142b32; }
+</sheet>

@@ -1,0 +1,13 @@
+{
+  "name": "clipkin-interview",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "clipkin": { "project": true },
+  "dependencies": {
+    "@fontsource-variable/league-spartan": "5.3.0",
+    "@clipkin/clipkin": "^1.0.0",
+    "@clipkin/interview-emoji-reveal": "^1.0.0",
+    "@interview/flash": "file:packages/flash"
+  }
+}

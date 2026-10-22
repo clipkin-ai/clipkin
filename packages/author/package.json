@@ -1,0 +1,15 @@
+{
+  "name": "@clipkin/author",
+  "version": "0.0.0-dev",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.js"
+  },
+  "dependencies": {
+    "@clipkin/kernel": "*",
+    "@clipkin/facet": "*",
+    "@clipkin/protocol": "*",
+    "@clipkin/source": "*"
+  }
+}

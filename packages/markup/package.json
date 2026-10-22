@@ -1,0 +1,20 @@
+{
+  "name": "@clipkin/markup",
+  "version": "0.0.0-dev",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.js",
+    "./run": "./lib/run.js"
+  },
+  "clipkin": {
+    "activation": "./lib/activation.js"
+  },
+  "dependencies": {
+    "@clipkin/source": "*",
+    "@clipkin/author": "*",
+    "@clipkin/facet": "*",
+    "@clipkin/protocol": "*",
+    "@clipkin/run": "*"
+  }
+}

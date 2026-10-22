@@ -1,0 +1,12 @@
+{
+  "name": "@clipkin/spatial",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.js"
+  },
+  "clipkin": {
+    "activation": "./lib/activation.js"
+  }
+}

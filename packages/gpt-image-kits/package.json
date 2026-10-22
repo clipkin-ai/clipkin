@@ -1,0 +1,9 @@
+{
+  "name": "@clipkin/gpt-image-kits",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./phone-ugc-v1": "./kits/phone-ugc-v1.grade"
+  }
+}

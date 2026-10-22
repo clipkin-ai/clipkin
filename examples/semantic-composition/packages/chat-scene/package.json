@@ -1,0 +1,33 @@
+{
+  "name": "@example/chat-scene",
+  "version": "0.0.0-dev",
+  "private": true,
+  "type": "module",
+  "clipkin": {
+    "activation": "./dist/activation.js"
+  },
+  "exports": {
+    ".": "./dist/render.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "@clipkin/clipkin": "workspace:*",
+    "typescript": "5.9.3",
+    "@types/node": "24.10.1"
+  },
+  "dependencies": {
+    "@clipkin/composition": "workspace:^1.0.0",
+    "@clipkin/media": "workspace:^1.0.0",
+    "@clipkin/timeline": "workspace:^1.0.0",
+    "@clipkin/spatial": "workspace:^1.0.0",
+    "@clipkin/temporal": "workspace:^1.0.0",
+    "@clipkin/html-program": "workspace:^1.0.0"
+  }
+}

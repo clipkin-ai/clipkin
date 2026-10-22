@@ -1,0 +1,10 @@
+{
+  "format": "kinora.result-value@1",
+  "value": {
+    "frame": 105,
+    "id": "animation.turn",
+    "subjectId": "animation.turn",
+    "timelineId": "animation"
+  },
+  "resources": []
+}

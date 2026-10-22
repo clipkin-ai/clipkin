@@ -1,0 +1,1 @@
+import{s as e,t}from"./c-WVXSV7MV.js";import{createAdmissionPackageFacet as o}from"@clipkin/clipkin/admission";import{createProducerPackageFacet as r}from"@clipkin/clipkin/producer";var c={format:"clipkin.package@1",modules:[{manifest:e}],facets:[...[t].flatMap(a=>[r(a),o(a)])]},f=c;export{c as clipkinPackage,f as default};

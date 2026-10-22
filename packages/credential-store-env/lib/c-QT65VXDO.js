@@ -1,0 +1,1 @@
+import{verifyCredentialRef as t}from"@clipkin/runtime-local/extension";var r=class{#e;constructor(e=process.env){this.#e=e}async resolve(e){if(t(e),e.store!=="env")return;let n=this.#e[e.key];if(!(n===void 0||n.length===0))return{secret:n}}};export{r as a};

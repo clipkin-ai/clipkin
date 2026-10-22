@@ -1,0 +1,3 @@
+import{b as o}from"./c-UZ2WR6CE.js";import{writeSync as n}from"node:fs";var s=()=>{try{o(process.pid)}catch(e){n(2,`Unable to confirm cleanup when the render exited: ${String(e)}
+`)}},t=e=>{let i=e instanceof Error?e.stack??e.message:String(e);n(2,`${i}
+`)},c=()=>process.exit(143),r=()=>process.exit(130);process.once("exit",s);process.once("SIGTERM",c);process.once("SIGINT",r);process.platform==="win32"&&process.on("uncaughtExceptionMonitor",t);function f(){process.off("exit",s),process.off("SIGTERM",c),process.off("SIGINT",r),process.platform==="win32"&&process.off("uncaughtExceptionMonitor",t)}export{f as a};

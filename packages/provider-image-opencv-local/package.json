@@ -1,0 +1,16 @@
+{
+  "name": "@clipkin/provider-image-opencv-local",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.js"
+  },
+  "clipkin": {
+    "activation": "./lib/activation.js"
+  },
+  "peerDependencies": {
+    "@clipkin/image-operations": "^1.0.0",
+    "@clipkin/runtime-local": "^1.0.0"
+  }
+}

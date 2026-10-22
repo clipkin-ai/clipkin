@@ -1,0 +1,19 @@
+{
+  "name": "@clipkin/timeline-author",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.js"
+  },
+  "clipkin": {
+    "activation": "./lib/activation.js"
+  },
+  "dependencies": {
+    "@clipkin/temporal": "^1.0.0",
+    "@clipkin/timeline": "^1.0.0"
+  },
+  "peerDependencies": {
+    "@clipkin/studio-companion": "^1.0.0"
+  }
+}

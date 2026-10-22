@@ -1,0 +1,23 @@
+{
+  "name": "@clipkin/ranking",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.js",
+    "./studio": "./lib/studio.js"
+  },
+  "clipkin": {
+    "activation": "./lib/activation.js"
+  },
+  "dependencies": {
+    "@clipkin/composition": "^1.0.0",
+    "@clipkin/media": "^1.0.0",
+    "@clipkin/spatial": "^1.0.0",
+    "@clipkin/temporal": "^1.0.0",
+    "@clipkin/timeline": "^1.0.0"
+  },
+  "peerDependencies": {
+    "@clipkin/studio-companion": "^1.0.0"
+  }
+}

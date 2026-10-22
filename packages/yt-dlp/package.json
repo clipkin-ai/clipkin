@@ -1,0 +1,13 @@
+{
+  "name": "@clipkin/yt-dlp",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cli": "./lib/cli.js"
+  },
+  "dependencies": {
+    "@clipkin/media-local": "^1.0.0"
+  }
+}

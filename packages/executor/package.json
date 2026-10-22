@@ -1,0 +1,17 @@
+{
+  "name": "@clipkin/executor",
+  "version": "0.0.0-dev",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.js"
+  },
+  "dependencies": {
+    "@clipkin/producer": "*",
+    "@clipkin/kernel": "*",
+    "@clipkin/endpoint": "*",
+    "@clipkin/protocol": "*",
+    "@clipkin/runtime": "*",
+    "@clipkin/admission": "*"
+  }
+}

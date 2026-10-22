@@ -1,0 +1,15 @@
+{
+  "name": "@clipkin/seedance-kits",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./speaker": "./kits/speaker-v1.grade",
+    "./broll": "./kits/broll-v1.grade",
+    "./podcast": "./kits/podcast-v1.grade",
+    "./call": "./kits/call-v1.grade",
+    "./street-interview": "./kits/street-interview-v1.grade",
+    "./motion-reference": "./kits/motion-reference-v1.grade",
+    "./camera-reference": "./kits/camera-reference-v1.grade"
+  }
+}

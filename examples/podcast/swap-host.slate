@@ -1,0 +1,6 @@
+<?reel using="@clipkin/markup/run@1"?>
+
+<slate version="1">
+  <author source="./swap-host.reel"/>
+  <target output="final.video"/>
+</slate>

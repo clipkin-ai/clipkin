@@ -1,0 +1,1 @@
+import{a as o}from"./c-H243C6D4.js";import{compositionTypes as i}from"@clipkin/composition";import{timelineTypes as t}from"@clipkin/timeline";var p=[{id:"film",match:{module:o,surface:"film",outputType:i.composition},timeSources:[{attribute:"timeline",type:t.timeline}],tracks:{childSurface:"Track",sourceAttribute:"source",types:[i.visualTrack,i.audioTrack]}}];export{p as a};

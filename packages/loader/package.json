@@ -1,0 +1,17 @@
+{
+  "name": "@clipkin/loader",
+  "version": "0.0.0-dev",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.js",
+    "./node": "./lib/node.js",
+    "./node/module-scope": "./lib/node-module-scope.js"
+  },
+  "dependencies": {
+    "@clipkin/facet": "*",
+    "@clipkin/protocol": "*",
+    "cjs-module-lexer": "2.2.1",
+    "typescript": "5.9.3"
+  }
+}

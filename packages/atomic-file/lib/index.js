@@ -1,0 +1,1 @@
+import{rename as o}from"node:fs/promises";async function a(e,i){if(process.platform==="win32"){let{replaceWindowsFile:r}=await import("./c-KOYPHDJ7.js");r(e,i)}else await o(e,i)}export{a as replaceFile};

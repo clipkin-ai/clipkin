@@ -1,0 +1,1969 @@
+{
+  "format": "kinora.result-value@1",
+  "value": {
+    "id": "conversation",
+    "kind": "visual",
+    "presents": [
+      {
+        "elements": [
+          {
+            "id": "chat",
+            "kind": "program",
+            "order": 0,
+            "program": {
+              "artifacts": [],
+              "format": "kinora.html-visual@1",
+              "payload": {
+                "css": ":scope{background:#142b32;overflow:hidden}\n      header{position:absolute;inset:0 0 auto;padding:48px 38px 32px;display:flex;align-items:center;gap:18px;border-bottom:1px solid #35505a;background:#1c353e}\n      .status{width:17px;height:17px;border-radius:50%;background:#abda82;box-shadow:0 0 0 7px #304b43}\n      .subtitle{margin-top:6px}.viewport{position:absolute;inset:164px 32px 96px;overflow:hidden}\n      .messages{position:relative}article{margin:0 0 28px;max-width:84%;transform-origin:left bottom}\n      article.right{margin-left:auto;transform-origin:right bottom}.sender{margin:0 10px 8px}\n      .right .sender{text-align:right}.bubble{padding:20px 23px;border-radius:23px 23px 23px 5px;background:#304953;box-shadow:0 6px 0 #10262d}\n      .right .bubble{background:#47694d;border-radius:23px 23px 5px 23px}footer{position:absolute;inset:auto 0 0;height:90px;background:#1c353e}\n      .dots{display:flex;gap:9px;margin:35px 40px}.dots i{width:10px;height:10px;background:#a6b8b9;border-radius:50%}",
+                "data": {
+                  "entrance": 10,
+                  "times": [
+                    15,
+                    60,
+                    105,
+                    156
+                  ]
+                },
+                "html": "<header><div class=\"status\"></div><div>{{title}}<div class=\"subtitle\">{{subtitle}}</div></div></header>\n      <div class=\"viewport\"><div class=\"messages\"><article class=\"left\" data-message=\"0\">\n      <div class=\"sender\">{{sender-0}}</div><div class=\"bubble\">{{text-0}}</div></article><article class=\"right\" data-message=\"1\">\n      <div class=\"sender\">{{sender-1}}</div><div class=\"bubble\">{{text-1}}</div></article><article class=\"left\" data-message=\"2\">\n      <div class=\"sender\">{{sender-2}}</div><div class=\"bubble\">{{text-2}}</div></article><article class=\"right\" data-message=\"3\">\n      <div class=\"sender\">{{sender-3}}</div><div class=\"bubble\">{{text-3}}</div></article></div></div>\n      <footer><div class=\"dots\"><i></i><i></i><i></i></div></footer>",
+                "setup": "const cards=[...root.querySelectorAll('article')], list=root.querySelector('.messages'), viewport=root.querySelector('.viewport'), dots=root.querySelector('.dots');\n      return frame=>{\n        let last=-1;\n        cards.forEach((card,i)=>{\n          const age=frame-data.times[i], visible=age>=0;\n          card.style.display=visible?'block':'none';\n          if(visible){last=i;const t=Math.min(1,age/data.entrance), p=1-Math.pow(1-t,3);\n            card.style.opacity=String(p);card.style.transform='translateY('+(18*(1-p))+'px) scale('+(0.96+0.04*p)+')';}\n        });\n        const bottom=last<0?0:cards[last].offsetTop+cards[last].offsetHeight;\n        const previous=last<1?0:cards[last-1].offsetTop+cards[last-1].offsetHeight;\n        const t=last<0?1:Math.max(0,Math.min(1,(frame-data.times[last])/data.entrance));\n        const before=Math.max(0,previous-viewport.clientHeight), after=Math.max(0,bottom-viewport.clientHeight);\n        list.style.transform='translateY('+(-(before+(after-before)*(1-Math.pow(1-t,3))))+'px)';\n        dots.style.opacity=last===cards.length-1?'0':'1';\n        [...dots.children].forEach((dot,i)=>dot.style.transform='translateY('+(-3*(1+Math.sin(frame*.18-i)))+'px)');\n      };"
+              }
+            },
+            "style": [
+              {
+                "name": "height",
+                "value": "960px"
+              },
+              {
+                "name": "left",
+                "value": "0px"
+              },
+              {
+                "name": "position",
+                "value": "absolute"
+              },
+              {
+                "name": "top",
+                "value": "0px"
+              },
+              {
+                "name": "width",
+                "value": "540px"
+              }
+            ]
+          },
+          {
+            "fonts": [
+              {
+                "sources": [
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+1F00-1FFF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD"
+                  }
+                ],
+                "style": "normal",
+                "weight": 600
+              }
+            ],
+            "id": "title",
+            "kind": "text",
+            "order": 1,
+            "parent": "chat",
+            "style": [
+              {
+                "name": "color",
+                "value": "#f6ead9"
+              },
+              {
+                "name": "font-size",
+                "value": "30px"
+              },
+              {
+                "name": "line-height",
+                "value": 1.3
+              }
+            ],
+            "text": "Launch crew"
+          },
+          {
+            "fonts": [
+              {
+                "sources": [
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+1F00-1FFF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD"
+                  }
+                ],
+                "style": "normal",
+                "weight": 600
+              }
+            ],
+            "id": "subtitle",
+            "kind": "text",
+            "order": 2,
+            "parent": "chat",
+            "style": [
+              {
+                "name": "color",
+                "value": "#b8c6c5"
+              },
+              {
+                "name": "font-size",
+                "value": "16px"
+              },
+              {
+                "name": "line-height",
+                "value": 1.3
+              }
+            ],
+            "text": "A small change of plan"
+          },
+          {
+            "fonts": [
+              {
+                "sources": [
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+1F00-1FFF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD"
+                  }
+                ],
+                "style": "normal",
+                "weight": 600
+              }
+            ],
+            "id": "sender-0",
+            "kind": "text",
+            "order": 3,
+            "parent": "chat",
+            "style": [
+              {
+                "name": "color",
+                "value": "#a9b8bd"
+              },
+              {
+                "name": "font-size",
+                "value": "16px"
+              },
+              {
+                "name": "line-height",
+                "value": 1.3
+              }
+            ],
+            "text": "Maya"
+          },
+          {
+            "fonts": [
+              {
+                "sources": [
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+1F00-1FFF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD"
+                  }
+                ],
+                "style": "normal",
+                "weight": 600
+              }
+            ],
+            "id": "text-0",
+            "kind": "text",
+            "order": 4,
+            "parent": "chat",
+            "style": [
+              {
+                "name": "color",
+                "value": "#f4efe6"
+              },
+              {
+                "name": "font-size",
+                "value": "27px"
+              },
+              {
+                "name": "line-height",
+                "value": 1.3
+              }
+            ],
+            "text": "Are we ready to launch?"
+          },
+          {
+            "fonts": [
+              {
+                "sources": [
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+1F00-1FFF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD"
+                  }
+                ],
+                "style": "normal",
+                "weight": 600
+              }
+            ],
+            "id": "sender-1",
+            "kind": "text",
+            "order": 5,
+            "parent": "chat",
+            "style": [
+              {
+                "name": "color",
+                "value": "#a9b8bd"
+              },
+              {
+                "name": "font-size",
+                "value": "16px"
+              },
+              {
+                "name": "line-height",
+                "value": 1.3
+              }
+            ],
+            "text": "Leo"
+          },
+          {
+            "fonts": [
+              {
+                "sources": [
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+1F00-1FFF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD"
+                  }
+                ],
+                "style": "normal",
+                "weight": 600
+              }
+            ],
+            "id": "text-1",
+            "kind": "text",
+            "order": 6,
+            "parent": "chat",
+            "style": [
+              {
+                "name": "color",
+                "value": "#f4efe6"
+              },
+              {
+                "name": "font-size",
+                "value": "27px"
+              },
+              {
+                "name": "line-height",
+                "value": 1.3
+              }
+            ],
+            "text": "The video is ready."
+          },
+          {
+            "fonts": [
+              {
+                "sources": [
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+1F00-1FFF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD"
+                  }
+                ],
+                "style": "normal",
+                "weight": 600
+              }
+            ],
+            "id": "sender-2",
+            "kind": "text",
+            "order": 7,
+            "parent": "chat",
+            "style": [
+              {
+                "name": "color",
+                "value": "#a9b8bd"
+              },
+              {
+                "name": "font-size",
+                "value": "16px"
+              },
+              {
+                "name": "line-height",
+                "value": 1.3
+              }
+            ],
+            "text": "Maya"
+          },
+          {
+            "fonts": [
+              {
+                "sources": [
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+1F00-1FFF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD"
+                  }
+                ],
+                "style": "normal",
+                "weight": 600
+              }
+            ],
+            "id": "text-2",
+            "kind": "text",
+            "order": 8,
+            "parent": "chat",
+            "style": [
+              {
+                "name": "color",
+                "value": "#f4efe6"
+              },
+              {
+                "name": "font-size",
+                "value": "27px"
+              },
+              {
+                "name": "line-height",
+                "value": 1.3
+              }
+            ],
+            "text": "Great. One tiny change..."
+          },
+          {
+            "fonts": [
+              {
+                "sources": [
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+1F00-1FFF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD"
+                  }
+                ],
+                "style": "normal",
+                "weight": 600
+              }
+            ],
+            "id": "sender-3",
+            "kind": "text",
+            "order": 9,
+            "parent": "chat",
+            "style": [
+              {
+                "name": "color",
+                "value": "#a9b8bd"
+              },
+              {
+                "name": "font-size",
+                "value": "16px"
+              },
+              {
+                "name": "line-height",
+                "value": 1.3
+              }
+            ],
+            "text": "Leo"
+          },
+          {
+            "fonts": [
+              {
+                "sources": [
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0460-052F,U+1C80-1C8A,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+1F00-1FFF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF"
+                  },
+                  {
+                    "artifact": null,
+                    "unicodeRange": "U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD"
+                  }
+                ],
+                "style": "normal",
+                "weight": 600
+              }
+            ],
+            "id": "text-3",
+            "kind": "text",
+            "order": 10,
+            "parent": "chat",
+            "style": [
+              {
+                "name": "color",
+                "value": "#f4efe6"
+              },
+              {
+                "name": "font-size",
+                "value": "27px"
+              },
+              {
+                "name": "line-height",
+                "value": 1.3
+              }
+            ],
+            "text": "I left the whole scene editable."
+          }
+        ],
+        "id": "conversation",
+        "order": 0,
+        "span": {
+          "endFrameExclusive": 240,
+          "startFrame": 0
+        },
+        "z": 0
+      }
+    ],
+    "timelineId": "animation",
+    "visualIr": "kinora.visual-ir@1"
+  },
+  "resources": [
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        1,
+        "fonts",
+        0,
+        "sources",
+        0,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-cyrillic-ext-wght-normal.woff2",
+        "size": 25960,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        1,
+        "fonts",
+        0,
+        "sources",
+        1,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-cyrillic-wght-normal.woff2",
+        "size": 18748,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        1,
+        "fonts",
+        0,
+        "sources",
+        2,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-greek-ext-wght-normal.woff2",
+        "size": 11232,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        1,
+        "fonts",
+        0,
+        "sources",
+        3,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-greek-wght-normal.woff2",
+        "size": 18996,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        1,
+        "fonts",
+        0,
+        "sources",
+        4,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-vietnamese-wght-normal.woff2",
+        "size": 10252,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        1,
+        "fonts",
+        0,
+        "sources",
+        5,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2",
+        "size": 85068,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        1,
+        "fonts",
+        0,
+        "sources",
+        6,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2",
+        "size": 48256,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        2,
+        "fonts",
+        0,
+        "sources",
+        0,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-cyrillic-ext-wght-normal.woff2",
+        "size": 25960,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        2,
+        "fonts",
+        0,
+        "sources",
+        1,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-cyrillic-wght-normal.woff2",
+        "size": 18748,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        2,
+        "fonts",
+        0,
+        "sources",
+        2,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-greek-ext-wght-normal.woff2",
+        "size": 11232,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        2,
+        "fonts",
+        0,
+        "sources",
+        3,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-greek-wght-normal.woff2",
+        "size": 18996,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        2,
+        "fonts",
+        0,
+        "sources",
+        4,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-vietnamese-wght-normal.woff2",
+        "size": 10252,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        2,
+        "fonts",
+        0,
+        "sources",
+        5,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2",
+        "size": 85068,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        2,
+        "fonts",
+        0,
+        "sources",
+        6,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2",
+        "size": 48256,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        3,
+        "fonts",
+        0,
+        "sources",
+        0,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-cyrillic-ext-wght-normal.woff2",
+        "size": 25960,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        3,
+        "fonts",
+        0,
+        "sources",
+        1,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-cyrillic-wght-normal.woff2",
+        "size": 18748,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        3,
+        "fonts",
+        0,
+        "sources",
+        2,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-greek-ext-wght-normal.woff2",
+        "size": 11232,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        3,
+        "fonts",
+        0,
+        "sources",
+        3,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-greek-wght-normal.woff2",
+        "size": 18996,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        3,
+        "fonts",
+        0,
+        "sources",
+        4,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-vietnamese-wght-normal.woff2",
+        "size": 10252,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        3,
+        "fonts",
+        0,
+        "sources",
+        5,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2",
+        "size": 85068,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        3,
+        "fonts",
+        0,
+        "sources",
+        6,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2",
+        "size": 48256,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        4,
+        "fonts",
+        0,
+        "sources",
+        0,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-cyrillic-ext-wght-normal.woff2",
+        "size": 25960,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        4,
+        "fonts",
+        0,
+        "sources",
+        1,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-cyrillic-wght-normal.woff2",
+        "size": 18748,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        4,
+        "fonts",
+        0,
+        "sources",
+        2,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-greek-ext-wght-normal.woff2",
+        "size": 11232,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        4,
+        "fonts",
+        0,
+        "sources",
+        3,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-greek-wght-normal.woff2",
+        "size": 18996,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        4,
+        "fonts",
+        0,
+        "sources",
+        4,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-vietnamese-wght-normal.woff2",
+        "size": 10252,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        4,
+        "fonts",
+        0,
+        "sources",
+        5,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2",
+        "size": 85068,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        4,
+        "fonts",
+        0,
+        "sources",
+        6,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2",
+        "size": 48256,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        5,
+        "fonts",
+        0,
+        "sources",
+        0,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-cyrillic-ext-wght-normal.woff2",
+        "size": 25960,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        5,
+        "fonts",
+        0,
+        "sources",
+        1,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-cyrillic-wght-normal.woff2",
+        "size": 18748,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        5,
+        "fonts",
+        0,
+        "sources",
+        2,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-greek-ext-wght-normal.woff2",
+        "size": 11232,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        5,
+        "fonts",
+        0,
+        "sources",
+        3,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-greek-wght-normal.woff2",
+        "size": 18996,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        5,
+        "fonts",
+        0,
+        "sources",
+        4,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-vietnamese-wght-normal.woff2",
+        "size": 10252,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        5,
+        "fonts",
+        0,
+        "sources",
+        5,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2",
+        "size": 85068,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        5,
+        "fonts",
+        0,
+        "sources",
+        6,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2",
+        "size": 48256,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        6,
+        "fonts",
+        0,
+        "sources",
+        0,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-cyrillic-ext-wght-normal.woff2",
+        "size": 25960,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        6,
+        "fonts",
+        0,
+        "sources",
+        1,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-cyrillic-wght-normal.woff2",
+        "size": 18748,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        6,
+        "fonts",
+        0,
+        "sources",
+        2,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-greek-ext-wght-normal.woff2",
+        "size": 11232,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        6,
+        "fonts",
+        0,
+        "sources",
+        3,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-greek-wght-normal.woff2",
+        "size": 18996,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        6,
+        "fonts",
+        0,
+        "sources",
+        4,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-vietnamese-wght-normal.woff2",
+        "size": 10252,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        6,
+        "fonts",
+        0,
+        "sources",
+        5,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2",
+        "size": 85068,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        6,
+        "fonts",
+        0,
+        "sources",
+        6,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2",
+        "size": 48256,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        7,
+        "fonts",
+        0,
+        "sources",
+        0,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-cyrillic-ext-wght-normal.woff2",
+        "size": 25960,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        7,
+        "fonts",
+        0,
+        "sources",
+        1,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-cyrillic-wght-normal.woff2",
+        "size": 18748,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        7,
+        "fonts",
+        0,
+        "sources",
+        2,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-greek-ext-wght-normal.woff2",
+        "size": 11232,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        7,
+        "fonts",
+        0,
+        "sources",
+        3,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-greek-wght-normal.woff2",
+        "size": 18996,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        7,
+        "fonts",
+        0,
+        "sources",
+        4,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-vietnamese-wght-normal.woff2",
+        "size": 10252,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        7,
+        "fonts",
+        0,
+        "sources",
+        5,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2",
+        "size": 85068,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        7,
+        "fonts",
+        0,
+        "sources",
+        6,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2",
+        "size": 48256,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        8,
+        "fonts",
+        0,
+        "sources",
+        0,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-cyrillic-ext-wght-normal.woff2",
+        "size": 25960,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        8,
+        "fonts",
+        0,
+        "sources",
+        1,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-cyrillic-wght-normal.woff2",
+        "size": 18748,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        8,
+        "fonts",
+        0,
+        "sources",
+        2,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-greek-ext-wght-normal.woff2",
+        "size": 11232,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        8,
+        "fonts",
+        0,
+        "sources",
+        3,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-greek-wght-normal.woff2",
+        "size": 18996,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        8,
+        "fonts",
+        0,
+        "sources",
+        4,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-vietnamese-wght-normal.woff2",
+        "size": 10252,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        8,
+        "fonts",
+        0,
+        "sources",
+        5,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2",
+        "size": 85068,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        8,
+        "fonts",
+        0,
+        "sources",
+        6,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2",
+        "size": 48256,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        9,
+        "fonts",
+        0,
+        "sources",
+        0,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-cyrillic-ext-wght-normal.woff2",
+        "size": 25960,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        9,
+        "fonts",
+        0,
+        "sources",
+        1,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-cyrillic-wght-normal.woff2",
+        "size": 18748,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        9,
+        "fonts",
+        0,
+        "sources",
+        2,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-greek-ext-wght-normal.woff2",
+        "size": 11232,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        9,
+        "fonts",
+        0,
+        "sources",
+        3,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-greek-wght-normal.woff2",
+        "size": 18996,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        9,
+        "fonts",
+        0,
+        "sources",
+        4,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-vietnamese-wght-normal.woff2",
+        "size": 10252,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        9,
+        "fonts",
+        0,
+        "sources",
+        5,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2",
+        "size": 85068,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        9,
+        "fonts",
+        0,
+        "sources",
+        6,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2",
+        "size": 48256,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        10,
+        "fonts",
+        0,
+        "sources",
+        0,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-cyrillic-ext-wght-normal.woff2",
+        "size": 25960,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        10,
+        "fonts",
+        0,
+        "sources",
+        1,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-cyrillic-wght-normal.woff2",
+        "size": 18748,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        10,
+        "fonts",
+        0,
+        "sources",
+        2,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-greek-ext-wght-normal.woff2",
+        "size": 11232,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        10,
+        "fonts",
+        0,
+        "sources",
+        3,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-greek-wght-normal.woff2",
+        "size": 18996,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        10,
+        "fonts",
+        0,
+        "sources",
+        4,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-vietnamese-wght-normal.woff2",
+        "size": 10252,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        10,
+        "fonts",
+        0,
+        "sources",
+        5,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2",
+        "size": 85068,
+        "mediaType": "font/woff2"
+      }
+    },
+    {
+      "at": [
+        "presents",
+        0,
+        "elements",
+        10,
+        "fonts",
+        0,
+        "sources",
+        6,
+        "artifact"
+      ],
+      "file": {
+        "kind": "external-file",
+        "uri": "file:///home/claude/kinora/node_modules/.pnpm/@fontsource-variable+inter@5.3.0/node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2",
+        "size": 48256,
+        "mediaType": "font/woff2"
+      }
+    }
+  ]
+}

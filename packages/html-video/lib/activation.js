@@ -1,0 +1,1 @@
+import{c as e,d as a,e as o,f as t}from"./c-KOBOXLI5.js";import{createMarkupSurfaceFacet as r}from"@clipkin/clipkin/markup";var c={format:"clipkin.package@1",modules:[{manifest:o}],facets:[r({module:e,declaration:a.find(i=>i.name==="video"),handler:t})]},f=c;export{c as clipkinPackage,f as default};

@@ -1,0 +1,10 @@
+{
+  "format": "kinora.result-value@1",
+  "value": {
+    "frame": 60,
+    "id": "animation.reply",
+    "subjectId": "animation.reply",
+    "timelineId": "animation"
+  },
+  "resources": []
+}

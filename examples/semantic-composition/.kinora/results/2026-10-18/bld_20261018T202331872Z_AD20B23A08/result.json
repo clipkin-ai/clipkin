@@ -1,0 +1,151 @@
+{
+  "format": "kinora.build-result@1",
+  "source": {
+    "id": "chat.svml"
+  },
+  "run": {
+    "id": "chat.svrun"
+  },
+  "targets": [
+    "final.video"
+  ],
+  "outputs": {
+    "animation.timeline": {
+      "displayName": "animation",
+      "type": {
+        "module": {
+          "name": "@kinora/timeline",
+          "version": "1"
+        },
+        "name": "Timeline"
+      },
+      "value": {
+        "kind": "value",
+        "path": "values/value-0001.json"
+      }
+    },
+    "animation.question": {
+      "displayName": "animation",
+      "type": {
+        "module": {
+          "name": "@kinora/temporal",
+          "version": "1"
+        },
+        "name": "TemporalInstant"
+      },
+      "value": {
+        "kind": "value",
+        "path": "values/value-0002.json"
+      }
+    },
+    "animation.reply": {
+      "displayName": "animation",
+      "type": {
+        "module": {
+          "name": "@kinora/temporal",
+          "version": "1"
+        },
+        "name": "TemporalInstant"
+      },
+      "value": {
+        "kind": "value",
+        "path": "values/value-0003.json"
+      }
+    },
+    "animation.reveal": {
+      "displayName": "animation",
+      "type": {
+        "module": {
+          "name": "@kinora/temporal",
+          "version": "1"
+        },
+        "name": "TemporalInstant"
+      },
+      "value": {
+        "kind": "value",
+        "path": "values/value-0004.json"
+      }
+    },
+    "animation.turn": {
+      "displayName": "animation",
+      "type": {
+        "module": {
+          "name": "@kinora/temporal",
+          "version": "1"
+        },
+        "name": "TemporalInstant"
+      },
+      "value": {
+        "kind": "value",
+        "path": "values/value-0005.json"
+      }
+    },
+    "animation.window": {
+      "displayName": "animation",
+      "type": {
+        "module": {
+          "name": "@kinora/temporal",
+          "version": "1"
+        },
+        "name": "TemporalWindow"
+      },
+      "value": {
+        "kind": "value",
+        "path": "values/value-0006.json"
+      }
+    },
+    "conversation.visual": {
+      "displayName": "conversation",
+      "type": {
+        "module": {
+          "name": "@kinora/composition",
+          "version": "1"
+        },
+        "name": "VisualTrack"
+      },
+      "value": {
+        "kind": "value",
+        "path": "values/value-0007.json"
+      }
+    },
+    "main.composition": {
+      "displayName": "main",
+      "type": {
+        "module": {
+          "name": "@kinora/composition",
+          "version": "1"
+        },
+        "name": "Composition"
+      },
+      "value": {
+        "kind": "value",
+        "path": "values/value-0008.json"
+      }
+    },
+    "final.video": {
+      "displayName": "final",
+      "type": {
+        "module": {
+          "name": "@kinora/blob",
+          "version": "1"
+        },
+        "name": "Blob"
+      },
+      "value": {
+        "kind": "build-file",
+        "path": "files/file-0001.mp4",
+        "size": 74706,
+        "mediaType": "video/mp4"
+      }
+    }
+  },
+  "outcome": "complete",
+  "executionLog": {
+    "kind": "build-file",
+    "path": "execution.jsonl",
+    "size": 6817,
+    "mediaType": "application/x-ndjson"
+  },
+  "operations": [],
+  "finishedAt": 1792355029281
+}

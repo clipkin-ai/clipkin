@@ -1,0 +1,13 @@
+{
+  "name": "@clipkin/runtime",
+  "version": "0.0.0-dev",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.js"
+  },
+  "dependencies": {
+    "@clipkin/kernel": "*",
+    "@clipkin/protocol": "*"
+  }
+}

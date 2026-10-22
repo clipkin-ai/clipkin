@@ -1,0 +1,1 @@
+import{a as e,b as o,c as a,d as r,e as t}from"./c-TT3GN4PO.js";import{createMarkupSurfaceFacet as c}from"@clipkin/clipkin/markup";import{createStudioCompanionFacet as f}from"@clipkin/studio-companion";var s={format:"clipkin.package@1",modules:[{manifest:a}],facets:[c({module:e,declaration:o[0],handler:r}),f({parameters:t})]};export{s as default};

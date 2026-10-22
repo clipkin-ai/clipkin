@@ -1,0 +1,24 @@
+{
+  "format": "kinora.result-value@1",
+  "value": {
+    "end": {
+      "frame": 240,
+      "id": "animation.end",
+      "subjectId": "animation",
+      "timelineId": "animation"
+    },
+    "id": "animation",
+    "span": {
+      "endFrameExclusive": 240,
+      "startFrame": 0
+    },
+    "start": {
+      "frame": 0,
+      "id": "animation.start",
+      "subjectId": "animation",
+      "timelineId": "animation"
+    },
+    "subjectId": "animation"
+  },
+  "resources": []
+}

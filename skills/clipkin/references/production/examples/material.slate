@@ -1,0 +1,5 @@
+<?reel using="@clipkin/markup/run@1"?>
+<slate version="1">
+  <author source="./production.reel"/>
+  <target output="opening-alignment.alignment"/>
+</slate>

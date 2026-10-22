@@ -1,0 +1,18 @@
+{
+  "name": "@clipkin/recipe",
+  "version": "0.0.0-dev",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.js"
+  },
+  "clipkin": {
+    "activation": "./lib/activation.js"
+  },
+  "dependencies": {
+    "@clipkin/source": "*",
+    "@clipkin/kernel": "*",
+    "@clipkin/author": "*",
+    "@clipkin/protocol": "*"
+  }
+}

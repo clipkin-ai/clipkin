@@ -1,0 +1,10 @@
+{
+  "format": "kinora.result-value@1",
+  "value": {
+    "frame": 156,
+    "id": "animation.reveal",
+    "subjectId": "animation.reveal",
+    "timelineId": "animation"
+  },
+  "resources": []
+}

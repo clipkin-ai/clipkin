@@ -1,0 +1,1 @@
+import{B as o,M as t}from"./c-U3AGJUFE.js";import{createAdmissionPackageFacet as a}from"@clipkin/clipkin/admission";var e={format:"clipkin.package@1",modules:[{manifest:o}],facets:[a(t)]},m=e;export{e as clipkinPackage,m as default};

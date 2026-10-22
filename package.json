@@ -1,0 +1,237 @@
+{
+  "name": "@clipkin/clipkin",
+  "version": "1.0.0",
+  "description": "Clipkin: make videos with your AI agent",
+  "license": "SEE LICENSE IN LICENSE",
+  "homepage": "https://clipkin.com",
+  "type": "module",
+  "bin": {
+    "clipkin": "./bin/clipkin.mjs"
+  },
+  "exports": {
+    "./cli": {
+      "types": "./types/cli.d.ts",
+      "import": "./packages/cli/lib/public-cli.js"
+    },
+    "./compiler": {
+      "types": "./types/compiler.d.ts",
+      "import": "./packages/compiler/lib/index.js"
+    },
+    "./executor": {
+      "types": "./types/executor.d.ts",
+      "import": "./packages/executor/lib/index.js"
+    },
+    "./kernel": {
+      "types": "./types/kernel.d.ts",
+      "import": "./packages/kernel/lib/index.js"
+    },
+    "./project": {
+      "types": "./types/project.d.ts",
+      "import": "./packages/project/lib/index.js"
+    },
+    "./runtime": {
+      "types": "./types/runtime.d.ts",
+      "import": "./packages/runtime/lib/index.js"
+    },
+    "./source": {
+      "types": "./types/source.d.ts",
+      "import": "./packages/source/lib/index.js"
+    },
+    "./source/text": {
+      "types": "./types/source-text.d.ts",
+      "import": "./packages/source/lib/text.js"
+    },
+    "./workspace": {
+      "types": "./types/workspace.d.ts",
+      "import": "./packages/workspace/lib/index.js"
+    },
+    "./workspace/node": {
+      "types": "./types/workspace-node.d.ts",
+      "import": "./packages/workspace/lib/node.js"
+    },
+    "./blob": {
+      "types": "./types/blob.d.ts",
+      "import": "./packages/blob/lib/index.js"
+    },
+    "./admission": {
+      "types": "./types/admission.d.ts",
+      "import": "./packages/admission/lib/index.js"
+    },
+    "./producer": {
+      "types": "./types/producer.d.ts",
+      "import": "./packages/producer/lib/index.js"
+    },
+    "./facet": {
+      "types": "./types/facet.d.ts",
+      "import": "./packages/facet/lib/index.js"
+    },
+    "./protocol": {
+      "types": "./types/protocol.d.ts",
+      "import": "./packages/protocol/lib/index.js"
+    },
+    "./author": {
+      "types": "./types/author.d.ts",
+      "import": "./packages/author/lib/index.js"
+    },
+    "./markup": {
+      "types": "./types/markup.d.ts",
+      "import": "./packages/markup/lib/index.js"
+    },
+    "./markup/run": {
+      "types": "./types/markup-run.d.ts",
+      "import": "./packages/markup/lib/run.js"
+    },
+    "./run": {
+      "types": "./types/run.d.ts",
+      "import": "./packages/run/lib/index.js"
+    },
+    "./result": {
+      "types": "./types/result.d.ts",
+      "import": "./packages/result/lib/index.js"
+    },
+    "./result/node": {
+      "types": "./types/result-node.d.ts",
+      "import": "./packages/result/lib/node.js"
+    },
+    "./endpoint": {
+      "types": "./types/endpoint.d.ts",
+      "import": "./packages/endpoint/lib/index.js"
+    },
+    "./endpoint/http": {
+      "types": "./types/endpoint-http.d.ts",
+      "import": "./packages/endpoint/lib/http.js"
+    },
+    "./loader": {
+      "types": "./types/loader.d.ts",
+      "import": "./packages/loader/lib/index.js"
+    },
+    "./loader/node": {
+      "types": "./types/loader-node.d.ts",
+      "import": "./packages/loader/lib/public-loader-node.js"
+    },
+    "./loader/node/module-scope": {
+      "types": "./types/loader-node-module-scope.d.ts",
+      "import": "./packages/loader/lib/node-module-scope.js"
+    },
+    "./atomic-file": {
+      "types": "./types/atomic-file.d.ts",
+      "import": "./packages/atomic-file/lib/index.js"
+    },
+    "./recipe": {
+      "types": "./types/recipe.d.ts",
+      "import": "./packages/recipe/lib/index.js"
+    },
+    "./text": {
+      "types": "./types/text.d.ts",
+      "import": "./packages/text/lib/index.js"
+    },
+    "./packages/audio-track": "./packages/audio-track/package.json",
+    "./packages/billing": "./packages/billing/package.json",
+    "./packages/bria-matting": "./packages/bria-matting/package.json",
+    "./packages/browser-capture": "./packages/browser-capture/package.json",
+    "./packages/caption": "./packages/caption/package.json",
+    "./packages/caption-fine": "./packages/caption-fine/package.json",
+    "./packages/comment-sticker": "./packages/comment-sticker/package.json",
+    "./packages/composition": "./packages/composition/package.json",
+    "./packages/credential-store-env": "./packages/credential-store-env/package.json",
+    "./packages/credential-store-local": "./packages/credential-store-local/package.json",
+    "./packages/depth-stack": "./packages/depth-stack/package.json",
+    "./packages/elevenlabs-speech": "./packages/elevenlabs-speech/package.json",
+    "./packages/film": "./packages/film/package.json",
+    "./packages/fishaudio-speech": "./packages/fishaudio-speech/package.json",
+    "./packages/fontsource": "./packages/fontsource/package.json",
+    "./packages/generation": "./packages/generation/package.json",
+    "./packages/gpt-image": "./packages/gpt-image/package.json",
+    "./packages/gpt-image-kits": "./packages/gpt-image-kits/package.json",
+    "./packages/grok-imagine": "./packages/grok-imagine/package.json",
+    "./packages/html-document": "./packages/html-document/package.json",
+    "./packages/html-program": "./packages/html-program/package.json",
+    "./packages/html-video": "./packages/html-video/package.json",
+    "./packages/image-operations": "./packages/image-operations/package.json",
+    "./packages/interview-emoji-reveal": "./packages/interview-emoji-reveal/package.json",
+    "./packages/media": "./packages/media/package.json",
+    "./packages/media-local": "./packages/media-local/package.json",
+    "./packages/media-operations": "./packages/media-operations/package.json",
+    "./packages/mimo-speech": "./packages/mimo-speech/package.json",
+    "./packages/minimax-h3": "./packages/minimax-h3/package.json",
+    "./packages/minimax-speech": "./packages/minimax-speech/package.json",
+    "./packages/nano-banana": "./packages/nano-banana/package.json",
+    "./packages/narrative": "./packages/narrative/package.json",
+    "./packages/narrative-caption": "./packages/narrative-caption/package.json",
+    "./packages/narrative-speech-alignment": "./packages/narrative-speech-alignment/package.json",
+    "./packages/narrative-temporal": "./packages/narrative-temporal/package.json",
+    "./packages/pixverse": "./packages/pixverse/package.json",
+    "./packages/pricing": "./packages/pricing/package.json",
+    "./packages/provider-alibaba": "./packages/provider-alibaba/package.json",
+    "./packages/provider-byteplus": "./packages/provider-byteplus/package.json",
+    "./packages/provider-elevenlabs": "./packages/provider-elevenlabs/package.json",
+    "./packages/provider-fishaudio": "./packages/provider-fishaudio/package.json",
+    "./packages/provider-google": "./packages/provider-google/package.json",
+    "./packages/provider-html-local": "./packages/provider-html-local/package.json",
+    "./packages/provider-image-opencv-local": "./packages/provider-image-opencv-local/package.json",
+    "./packages/provider-mimo": "./packages/provider-mimo/package.json",
+    "./packages/provider-minimax": "./packages/provider-minimax/package.json",
+    "./packages/provider-openai": "./packages/provider-openai/package.json",
+    "./packages/provider-pixverse": "./packages/provider-pixverse/package.json",
+    "./packages/provider-replicate": "./packages/provider-replicate/package.json",
+    "./packages/provider-volcengine": "./packages/provider-volcengine/package.json",
+    "./packages/provider-whisperx-local": "./packages/provider-whisperx-local/package.json",
+    "./packages/provider-xai": "./packages/provider-xai/package.json",
+    "./packages/qwen3-speech": "./packages/qwen3-speech/package.json",
+    "./packages/ranking": "./packages/ranking/package.json",
+    "./packages/region-evidence": "./packages/region-evidence/package.json",
+    "./packages/runtime-local": "./packages/runtime-local/package.json",
+    "./packages/script": "./packages/script/package.json",
+    "./packages/seedance": "./packages/seedance/package.json",
+    "./packages/seedance-kits": "./packages/seedance-kits/package.json",
+    "./packages/seedream": "./packages/seedream/package.json",
+    "./packages/spatial": "./packages/spatial/package.json",
+    "./packages/speech-estimate": "./packages/speech-estimate/package.json",
+    "./packages/speech-evidence": "./packages/speech-evidence/package.json",
+    "./packages/studio": "./packages/studio/package.json",
+    "./packages/studio-companion": "./packages/studio-companion/package.json",
+    "./packages/temporal": "./packages/temporal/package.json",
+    "./packages/text-fine": "./packages/text-fine/package.json",
+    "./packages/timeline": "./packages/timeline/package.json",
+    "./packages/timeline-author": "./packages/timeline-author/package.json",
+    "./packages/video": "./packages/video/package.json",
+    "./packages/visual-track": "./packages/visual-track/package.json",
+    "./packages/volcengine-matting": "./packages/volcengine-matting/package.json",
+    "./packages/wan": "./packages/wan/package.json",
+    "./packages/whisperx": "./packages/whisperx/package.json",
+    "./packages/yt-dlp": "./packages/yt-dlp/package.json"
+  },
+  "clipkin": {
+    "cli": {
+      "use": [
+        "@clipkin/runtime-local/cli",
+        "@clipkin/browser-capture/cli",
+        "@clipkin/yt-dlp/cli",
+        "@clipkin/media-local/cli",
+        "@clipkin/speech-estimate/cli",
+        "@clipkin/whisperx/cli",
+        "@clipkin/video/cli",
+        "@clipkin/studio/cli"
+      ]
+    },
+    "packageSources": [
+      "@clipkin/video"
+    ]
+  },
+  "engines": {
+    "node": ">=22.15.0"
+  },
+  "dependencies": {
+    "@puppeteer/browsers": "3.2.2",
+    "@types/node": "24.10.1",
+    "cjs-module-lexer": "2.2.1",
+    "cmu-pronouncing-dictionary": "3.0.0",
+    "koffi": "3.2.1",
+    "linkedom": "0.18.13",
+    "puppeteer-core": "25.10.0",
+    "sharp": "0.35.4",
+    "tsx": "4.21.0",
+    "typescript": "5.9.3",
+    "vite": "8.2.2"
+  }
+}
