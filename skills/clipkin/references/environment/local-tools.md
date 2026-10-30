@@ -25,8 +25,8 @@ prepare the chosen setup following its Provider's instructions and the evidence 
 hardware and the network the machine can actually reach as well as files on disk. A cached Python
 environment may still lack the speech-model weights, or one language's aligner, that the first
 useful request needs. Existing weights are a point in favour of the local route; say so while still
-offering the hosted alternative (Scribe, through the starter's `replicate.default`, serves the same
-alignment capability). Starting a
+offering the hosted alternative (Scribe, through the Clipkin account's `replicate.default`, serves the
+same alignment capability). Starting a
 newly configured large model is preparation even when every weight is cached. A service the user
 already chose and that works can simply be carried forward.
 
@@ -134,9 +134,9 @@ clipkin programs status --endpoint whisperx.local
 | Prepare, start helpers and start the Worker | `clipkin runtime up --endpoint <instance>` |
 
 `--endpoint` takes a Profile instance name and can be repeated; it scopes preparation and Program
-operations together. Leaving it out deliberately covers the whole Profile, including every vendor
+operations together. Leaving it out deliberately covers the whole Profile, including every
 Endpoint it declares. Bindings decide which Endpoint fulfils a request, and `plan` checks only the
-Endpoints its requests resolve to, so an unused local service or a vendor key nobody stored never
+Endpoints its requests resolve to, so an unused local service or a key nobody stored never
 becomes a prerequisite for a Build.
 
 Program commands leave the Worker alone, and `runtime down` stops the Worker and its execution
@@ -228,9 +228,9 @@ from that render's diagnostics, and never "fix" it by quietly switching browsers
 
 ## Select local WhisperX explicitly
 
-`@clipkin/whisperx@1#whisperx-alignment` is served by three Providers: local WhisperX and hosted
-Scribe through either the starter's `replicate.default` or a declared `elevenlabs.default`. The
-starter binds alignment to `replicate.default`. All three return the same aligned transcript evidence. When
+`@clipkin/whisperx@1#whisperx-alignment` is served by two Providers: local WhisperX and hosted
+Scribe through the Clipkin account's `replicate.default`. The starter binds alignment to
+`replicate.default`. Both return the same aligned transcript evidence. When
 the user chooses local execution, merge this fragment, replacing the starter's alignment binding,
 and keep the other services the production uses:
 
@@ -254,9 +254,8 @@ and keep the other services the production uses:
 ```
 
 This example aligns Korean on a CPU with the modest `small` model; pick the model and languages for
-the real production. The binding is required whenever `replicate.default`, `elevenlabs.default` (or
-any other alignment Endpoint) is also declared, which is the case in the starter Profile
-(`replicate.default`). Without it, `clipkin transcribe`
+the real production. The binding is required whenever another alignment Endpoint is also declared,
+which is the case in the starter Profile (`replicate.default`). Without it, `clipkin transcribe`
 and Builds that align speech fail on the ambiguity instead of choosing one.
 
 | Setting | What it selects |
@@ -333,8 +332,8 @@ Mainland China and other restricted networks can make specific hosts slow or unr
 reachable source from the user's actual network context and transfer evidence, never from the
 language they write in. Keep useful downloads and caches and change only the part that is blocked.
 Explain the changed outlook promptly, and when local preparation would dominate the production time,
-recommend the practical alternative: hosted alignment through the starter's `replicate.default` (or a
-declared `elevenlabs.default`) removes the speech-model download entirely, subject to the user's account and spending choice. Keep reference and
+recommend the practical alternative: hosted alignment through the starter's `replicate.default` removes the
+speech-model download entirely, subject to the user's spending choice. Keep reference and
 component work moving meanwhile.
 
 A **mirror** is another server that hands out copies of the same packages or model files. It changes

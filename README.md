@@ -32,10 +32,10 @@ To update, run the same two commands again. Release notes are on the
 
 ## Paying for generation
 
-Your agent's own subscription covers the agent. Generating images, video and voices is paid either
-with credits on your [Clipkin account](https://clipkin.com/account) (create a **Local access** key there,
-then `clipkin auth login replicate.default`), or with your own model accounts such as Replicate.
-The [Quickstart](https://clipkin.com/docs/quickstart) walks through both.
+Your agent's own subscription covers the agent. Generating images, video and voices runs through
+your [Clipkin account](https://clipkin.com/account) and is paid with its credits: create a **Local
+access** key there, then run `clipkin auth login replicate.default`. The
+[Quickstart](https://clipkin.com/docs/quickstart) walks through it.
 
 ## Help
 

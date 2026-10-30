@@ -34,6 +34,5 @@ The other `swap-*` and nested projects preserve separate variations and reuse st
 all been rebuilt to the same generation standard as these three reference entries. A linked showcase
 video demonstrates the original production; a fresh generation is a new result and will differ.
 
-For focused package work, `minimal-author-package/` demonstrates independent component packaging;
-[provider-package](provider-package/README.md) demonstrates connecting a chosen service through a
-project Provider. Each package's public inputs and behavior belong with its implementation.
+For focused package work, `minimal-author-package/` demonstrates independent component packaging.
+Each package's public inputs and behavior belong with its implementation.

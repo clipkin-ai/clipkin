@@ -144,8 +144,8 @@ beat, Clipkin first measures where each word of the Script was actually spoken i
 
 - **`language`** is the spoken language as a lower-case code such as `en`, `de`, `zh` or `ko`.
   `auto` isn't accepted. Whether a language works depends on the word-timing service.
-- **Which service runs it** is set in your Runtime Profile: WhisperX on your own computer, or Scribe
-  word timing through Replicate (the default, and what a Clipkin account uses) or ElevenLabs.
+- **Where it runs** is set in your Runtime Profile: through your Clipkin account (the default), or
+  WhisperX on your own computer.
   [Run Source & Builds](./run.md) covers Profiles.
 - **A Segment with no words** (`<beat/>`) still gets an Alignment, but leave out both `media` and
   `language`. It just spans the whole take, and nothing is sent to a service.

@@ -239,6 +239,10 @@ picture changes. Use the role names that make this particular work clearer.
 
 ## Turn understanding into new direction
 
+When the new piece clones the reference shot for shot, start from `clipkin shots` and follow
+[cloning right the first time](clone-checks.md): it measures the reference, the cheap material and
+the draft, each before the step it protects.
+
 Source seconds tell you where the evidence is. Record them together with the expressive relationship:
 a reveal resolves a question, a picture illustrates a phrase, an exit clears space for the next claim,
 or the next speaker's audio starts under the previous picture.

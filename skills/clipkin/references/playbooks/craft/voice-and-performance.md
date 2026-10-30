@@ -257,19 +257,8 @@ Choose between them per production, and keep one path per recurring speaker:
   a quick neutral narrator nobody needs to recognise elsewhere; neither vendor publishes its full list,
   and an unknown name fails at the service.
 
-**Alternatives when their Endpoint is declared.** ElevenLabs, Fish Audio and Xiaomi MiMo speech are
-not in the starter; use them only once `elevenlabs.default`, `fishaudio.default` or `mimo.default` is
-declared and its key stored:
-
-| Package | Surfaces |
-| --- | --- |
-| `@clipkin/elevenlabs-speech` | ElevenLabs `VoiceDesign` only (20 to 1000 character description, 100 to 1000 character sample) |
-| `@clipkin/fishaudio-speech` | Fish Audio `VoiceDesign` and `VoiceClone` (Clone takes spoken text and a voice only, no delivery instruction) |
-| `@clipkin/mimo-speech` | Xiaomi MiMo `VoiceDesign` and `VoiceClone` (Clone also accepts a delivery instruction as its text content) |
-
-The example projects in the Distribution's `examples/` (podcast, interview, ranking-football) still
-declare the ElevenLabs, Fish Audio, MiMo and Volcengine Endpoints and speak through
-`@clipkin/fishaudio-speech`; running them as they stand needs the Fish Audio key, or adapt their voice
+The example projects in the Distribution's `examples/` (podcast, interview, ranking-football) speak
+through `@clipkin/fishaudio-speech`, which the Clipkin account does not serve: adapt their voice
 requests to Qwen3 or MiniMax as above.
 
 Run `clipkin vocabulary` with a package name to see its author Surfaces, and read its README for exact
@@ -277,9 +266,8 @@ limits. Because `<id>.reference` is a plain audio Resource, a voice designed wit
 another package's clone (`VoiceClone`, `ClonedVoice`) or an A-roll video request.
 
 The Source picks the model semantics. Separately, the Runtime Profile picks the Endpoint that performs
-them: `replicate.default` for Qwen3 and MiniMax speech, the direct ElevenLabs, Fish Audio or MiMo
-Providers for theirs; [Model and provider](../../environment/model-and-provider.md) covers choosing and
-connecting them.
+them: `replicate.default`, through the Clipkin account;
+[Model and provider](../../environment/model-and-provider.md) covers it.
 
 ## Treat narration as a sound-picture relationship
 

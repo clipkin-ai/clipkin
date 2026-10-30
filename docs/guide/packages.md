@@ -14,14 +14,13 @@ the project uses it.
 |---|---|---|
 | Component | Turns what you write in a video into graphics, timing or requests for media. Captions, ranking boards and Tracks are components | The `.reel` file's `<import>` lines |
 | Model | Describes one generation model: what you can ask it for and what it returns. Seedance, MiniMax H3, Qwen3 TTS | The `.reel` file's `<import>` lines |
-| Provider | Sends a model's requests to a real service or a tool on your computer. Replicate, BytePlus, the local renderer | The [Runtime Profile](../quickstart/run.md#the-runtime-profile) |
+| Provider | Sends a model's requests to a real service or a tool on your computer. Your Clipkin account, the local renderer | The [Runtime Profile](../quickstart/run.md#the-runtime-profile) |
 | Credential store | Looks up the keys a Provider needs | The Runtime Profile |
 | Results store | Keeps each build's record and files | The Runtime; on your computer, in `.clipkin/results/` |
 | Distribution | The `clipkin` tool itself, plus the standard set of packages | The installed `@clipkin/clipkin` release |
 
 The split between model and Provider is what lets one video run anywhere. `seedance:ReferenceVideo`
-says *what* is wanted. Whether Replicate, BytePlus or your Clipkin account delivers it is decided by
-the Profile, without touching the video. In the same way, a ranking component says how its board
+says *what* is wanted. Which Endpoint delivers it is decided by the Profile, without touching the video. In the same way, a ranking component says how its board
 behaves, and the renderer draws it. Every piece connects through named inputs and outputs, so
 nothing is hidden.
 

@@ -30,24 +30,20 @@ The starter is the Distribution's default selection:
 - one writable credential Store, `local` (`@clipkin/credential-store-local`);
 - `replicate.default` (`@clipkin/provider-replicate`), the only model Endpoint, which serves the image
   and video models, voices (Qwen3 TTS design, clone and preset speakers; MiniMax speech and voice
-  cloning), background removal (BRIA) and hosted word timing with one Replicate API token, read
-  from `{ "store": "local", "key": "replicate.api-key" }`;
+  cloning), background removal (BRIA) and hosted word timing through the user's Clipkin account, at
+  `https://clipkin.com/api/local/v1/vendor/replicate` with the key
+  `{ "store": "local", "key": "clipkin.account" }`;
 - three credential-free local Endpoints: `media.local` (FFmpeg media work), `html.local` (HTML
   rendering in a managed browser) and `image.opencv.local` (image operations);
 - `dataRoot: ".clipkin/runtimes/local"` and one binding,
-  `"@clipkin/whisperx@1#whisperx-alignment": "replicate.default"`, which keeps alignment on Replicate
-  when `elevenlabs.default` or `whisperx.local` is declared later.
+  `"@clipkin/whisperx@1#whisperx-alignment": "replicate.default"`, which keeps alignment on the account
+  when `whisperx.local` is declared later.
 
-The direct Providers `elevenlabs`, `fishaudio`, `mimo`, `volcengine`, `byteplus`, `openai`, `google`,
-`xai`, `minimax`, `alibaba` and `pixverse` still ship with the Distribution but are not declared by
-the starter; add one as `<vendor>.default` (key `<vendor>.api-key`) instead of, or next to,
-Replicate when the work needs something Replicate refuses or only that vendor offers (ElevenLabs,
-Fish Audio or MiMo voices, Volcengine matting of sources longer than 60 s), or when the user
-already has that account.
+`replicate.default` only accepts a Clipkin address; there are no vendor Endpoints to add.
 [The Provider overview](model-and-provider.md#choose-the-practical-capability-path-with-the-user)
 lists what each Endpoint serves. A declared Endpoint is a routing option, not a to-do item:
 an Endpoint nobody's Run demands needs no key, no login and no preparation. Keep the entries and
-bindings that fit the work and the user's chosen setup.
+bindings that fit the work.
 
 Other ways to select a Profile:
 
@@ -131,24 +127,10 @@ Overlap is common, so check it whenever an Endpoint is added:
 
 | Capability | Endpoints that can offer it |
 | --- | --- |
-| `@clipkin/whisperx@1#whisperx-alignment` | `replicate.default` (hosted Scribe; the starter binds it), plus `elevenlabs.default` (also Scribe) and `whisperx.local` when declared |
-| A generation capability Replicate hosts (Seedance 2.0, Seedream, GPT Image, Nano Banana, Grok Imagine, MiniMax H3, Wan, PixVerse V6) | `replicate.default`, plus its direct Provider once declared, plus any project Provider you declare for the same capability |
-| Qwen3 TTS (`@clipkin/qwen3-speech`), MiniMax speech (`@clipkin/minimax-speech`), BRIA matting (`@clipkin/bria-matting`) | `replicate.default` only (no direct Provider serves them), plus any project Provider you declare |
-| Any other generation capability (ElevenLabs, Fish Audio, MiMo voices, Volcengine matting, Seedance 2.5, PixVerse C1, Grok Imagine 1.5) | Its direct Provider once declared, plus any project Provider you declare for the same capability |
+| `@clipkin/whisperx@1#whisperx-alignment` | `replicate.default` (hosted Scribe; the starter binds it), plus `whisperx.local` when declared |
+| Every generation capability | `replicate.default` |
 
-For example, declaring `byteplus.default` next to `replicate.default` makes both offer
-`@clipkin/seedance@1#seedance-2`; bind the one that should serve it:
-
-```json
-{
-  "bindings": {
-    "@clipkin/seedance@1#seedance-2": "byteplus.default"
-  }
-}
-```
-
-Capabilities only BytePlus offers, such as `#seedance-2.5`, need no binding. A project that declares
-`whisperx.local` must likewise replace the starter's alignment binding to say which one aligns speech:
+A project that declares `whisperx.local` must replace the starter's alignment binding to say which one aligns speech:
 
 ```json
 {
@@ -158,9 +140,8 @@ Capabilities only BytePlus offers, such as `#seedance-2.5`, need no binding. A p
 }
 ```
 
-Bind `"replicate.default"` (the starter's choice) or a declared `"elevenlabs.default"` instead to keep hosted
-transcription. Always copy the complete capability
-key from the Model or Provider documentation rather than a vendor's model label. The same Source can
+Bind `"replicate.default"` (the starter's choice) instead to keep hosted transcription. Always copy
+the complete capability key from the Model or Provider documentation rather than a model label. The same Source can
 then align locally in one deployment and through a hosted service in another.
 
 Explicit bindings let capability-scoped commands load just the named Endpoints. Without one, finding
@@ -169,8 +150,8 @@ Provider package that was never installed can block discovery. Fix the declarati
 intended binding. An account the work does not use never has to be logged in for routing to resolve.
 
 [Local WhisperX](local-tools.md#select-local-whisperx-explicitly) shows the complete local alignment
-fragment, and [service connections](model-and-provider.md) show vendor and project
-Provider fragments. Result storage and project-package resolution are unrelated to this routing.
+fragment, and [the Clipkin account](model-and-provider.md#connect-a-clipkin-account) shows the
+`replicate.default` fragment. Result storage and project-package resolution are unrelated to this routing.
 
 ## Put secrets behind credential references
 
@@ -188,7 +169,7 @@ try in turn. A read failure never moves a secret elsewhere or falls back to anot
 platform and permission rules.
 
 To use a Store, declare it under `credentials` and name it in the Endpoint's credential reference.
-The starter already does this for its one vendor Endpoint:
+The starter already does this for its one model Endpoint:
 
 ```json
 {
@@ -199,16 +180,15 @@ The starter already does this for its one vendor Endpoint:
     "replicate.default": {
       "use": "@clipkin/provider-replicate",
       "config": {
-        "apiKey": { "store": "local", "key": "replicate.api-key" }
+        "baseUrl": "https://clipkin.com/api/local/v1/vendor/replicate",
+        "apiKey": { "store": "local", "key": "clipkin.account" }
       }
     }
   }
 }
 ```
 
-A direct Provider added later takes the same shape, for example `openai.default` with
-`@clipkin/provider-openai` and `openai.api-key`, or `elevenlabs.default` with
-`@clipkin/provider-elevenlabs` and `elevenlabs.api-key`. Once the user has chosen to connect that account:
+To connect the user's Clipkin account:
 
 ```bash
 clipkin auth status replicate.default
@@ -222,8 +202,7 @@ can replace or delete a damaged value without reading it, while `status` and exe
 read errors. On a hosted Clipkin workspace the platform supplies these credentials, so there is
 nothing for the user to store.
 
-None of the shipped vendor Providers uses browser sign-in, but a Provider may declare one, and
-`auth status` says so. Its `login` then prints `Sign in through your browser: <url>` and waits. Run it as a
+`clipkin auth login replicate.default --clipkin https://clipkin.com` signs in through the browser. Its `login` then prints `Sign in through your browser: <url>` and waits. Run it as a
 background task and give the user that URL. If the login does not finish on its own, the callback
 page shows a `<code>#<state>` value; while the CLI is still waiting, deliver it with
 `curl "http://127.0.0.1:<port>/callback?code=<code>&state=<state>"`, where `<port>` is the number
@@ -239,10 +218,11 @@ reference at a variable name you choose:
     "env": { "use": "@clipkin/credential-store-env" }
   },
   "endpoints": {
-    "openai.default": {
-      "use": "@clipkin/provider-openai",
+    "replicate.default": {
+      "use": "@clipkin/provider-replicate",
       "config": {
-        "apiKey": { "store": "env", "key": "OPENAI_API_KEY" }
+        "baseUrl": "https://clipkin.com/api/local/v1/vendor/replicate",
+        "apiKey": { "store": "env", "key": "CLIPKIN_ACCOUNT_KEY" }
       }
     }
   }
@@ -253,8 +233,6 @@ That variable must reach both the CLI commands that need it and the Worker when 
 `auth login` cannot write to an environment Store, and exporting a variable in a terminal does not
 change a Worker that is already running.
 
-Use separate Endpoint names and credential keys for separate accounts; the binding chooses which one
-serves a capability, and storing a different vendor's key never changes which Provider runs.
 `auth status <endpoint>` reports declared slots without revealing values. "Configured" means present,
 not accepted, funded, reachable or permitted for every model. Secrets never belong in Sources, Runs,
 the Profile, command-line arguments, git history or chat.
@@ -272,12 +250,8 @@ Need. They are different controls, and there is no separate Build-wide model con
 | HTML renderer `workers`, `maxWorkers` | Fixed Chrome count per render, or the ceiling for `auto` |
 | HTML renderer `browserCapacity` | Chrome budget shared across admitted renders |
 
-Size limits from the account, not from habit. Vendor examples from the Provider READMEs: Replicate
-defaults to 4 for the Endpoint and for each action; OpenAI's image rate depends on the account tier
-(20, 150 or 250 images per minute), set through `actionLimits.submit.rate`; Xiaomi MiMo defaults to
-100 requests per minute; Fish Audio defaults to 5 concurrent calls for its starter tier; PixVerse
-defaults to 2 and depends on the plan; ElevenLabs' `defaultConcurrency` should match the plan's
-concurrency. Each README lists which keys it accepts.
+Size limits from the account, not from habit: `replicate.default` defaults to 4 for the Endpoint and
+for each action. Each README lists which keys it accepts.
 
 A render budget, for example:
 

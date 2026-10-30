@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 196" role="img" aria-label="Clipkin">
   <title>Clipkin</title>
-  <!-- Placeholder wordmark. Replace with the final brand logo. -->
   <g transform="translate(8 26)">
     <rect x="0" y="0" width="144" height="144" rx="36" fill="#E8177D"/>
-    <path d="M54 40 L54 104 L106 72 Z" fill="#ffffff"/>
+    <path d="M36 32 L36 94 L86 63 Z" fill="none" stroke="#fff" stroke-width="7" stroke-linejoin="round" opacity="0.7"/>
+    <path d="M58 50 L58 112 L110 81 Z" fill="#fff" stroke="#E8177D" stroke-width="10" stroke-linejoin="round" paint-order="stroke"/>
   </g>
   <text x="176" y="132" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="112" font-weight="800" letter-spacing="-4" fill="#F5F5F7">Clipkin</text>
 </svg>

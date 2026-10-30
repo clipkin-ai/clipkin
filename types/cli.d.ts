@@ -1344,6 +1344,9 @@ type CliProviderQuery = {
 type CliInvocationObservation = {
     readonly reportProgress?: (progress: OperationProgress) => Promise<void>;
     readonly reportDiagnostic?: (diagnostic: ExecutionDiagnostic) => Promise<void>;
+    readonly waitForAsynchronous?: {
+        readonly timeoutMs: number;
+    };
 };
 type CliRuntimeHost = {
     readonly profile: string;

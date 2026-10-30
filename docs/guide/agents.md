@@ -4,8 +4,8 @@ description: The ways to work with Clipkin, from the hosted app to your own codi
 ---
 
 Clipkin gives an AI agent the know-how and the tools to make videos. The agent reads and edits your
-project, generates material and builds the video. Which agent you use is separate from which
-[model services](./service-partners.md) generate the material.
+project, generates material and builds the video. Generation runs through your Clipkin account,
+whichever agent you use.
 
 ## Two ways to work
 
@@ -15,8 +15,8 @@ connected, and generation paid with your credits. Finished videos are delivered 
 to install.
 
 **In your own coding agent.** Install the Clipkin skill in Claude Code or Codex on your computer, and
-work in a project folder you own. You can generate on your Clipkin credits or on your own model
-accounts ([Quickstart](../quickstart.md)). This way you also get [Studio](../quickstart/preview.md)
+work in a project folder you own. Generation is paid with your Clipkin credits
+([Quickstart](../quickstart.md)). This way you also get [Studio](../quickstart/preview.md)
 for watching and editing on a timeline.
 
 ## Set up your own agent
@@ -65,5 +65,4 @@ Clipkin isn't tied to one agent. Another agent environment can use it if it can:
 The video files, the components and the Providers are the same for every agent. Start from what your
 environment actually offers, and make clear to the person where their work is kept and for how long.
 
-For generating material, see [Models and Providers](./providers.md) and
-[Model and deployment services](./service-partners.md).
+For generating material, see [Models and Providers](./providers.md).

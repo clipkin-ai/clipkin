@@ -97,12 +97,10 @@ separate tasks.
 [Voice and performance](voice-and-performance.md#give-a-recurring-person-one-accepted-voice) owns preparing
 and reusing the reference and choosing between those performances, including which speech package to use.
 By default the voice is designed with `@clipkin/qwen3-speech`'s `VoiceDesign` (served by the starter's
-Replicate Endpoint): the description above becomes its text content, the sample line its `speech`, and
+Clipkin account): the description above becomes its text content, the sample line its `speech`, and
 `language` names one of its ten languages. The chosen model's package README owns exact inputs. Two
 length rules change the sample line: a voice you will clone into `@clipkin/minimax-speech` needs a sample
-of 10 seconds to 5 minutes, so write 10 to 15 seconds of speech; and `@clipkin/elevenlabs-speech`, when
-its Endpoint is declared, requires a 20 to 1000 character description and a 100 to 1000 character
-speech sample.
+of 10 seconds to 5 minutes, so write 10 to 15 seconds of speech.
 
 ## Let one voice express different thoughts
 
@@ -120,9 +118,7 @@ Where the attitude is directed depends on how the passage is performed:
   supports. Qwen3's `VoiceClone` takes a delivery instruction as its text content ("Quietly
   confident, with a short pause before the final word"). MiniMax's `ClonedSpeech` takes no free-text
   instruction but sets `emotion` (`happy`, `calm`, `sad`, `angry`, `fearful`, `disgusted`,
-  `surprised` or `auto`), `speed`, `pitch` and `volume` per line. Where those Endpoints are declared, MiMo's `VoiceClone` also accepts a delivery
-  instruction; Fish Audio's `VoiceClone` does not, so there the Script wording and the reference carry
-  the delivery.
+  `surprised` or `auto`), `speed`, `pitch` and `volume` per line.
 
 Size the passage from this intended performance with
 [Speech-duration estimation](../../creation/script-and-time.md#estimate-before-choosing-durations). The pace

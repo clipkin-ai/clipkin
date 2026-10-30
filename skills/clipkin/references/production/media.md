@@ -123,7 +123,9 @@ that will join one program should share the same Clock.
 
 `primary-moving` skips attached cover art, prefers a declared default and fails rather than guess in
 an ambiguous container. `default` audio takes the default or the only plausible stream; name a
-`stream:<index>` when the container really holds several candidates you know about. Instead of the
+`stream:<index>` when the container really holds several candidates you know about. A clip that has no
+sound at all, such as a generation made with `generate-audio="false"`, has no audio stream to take:
+prepare it with `audio="none"` and leave it out of every Audio Clip, or the build stops. Instead of the
 direct attributes you may supply a `recipe` carrying the same policy (one or the other, never both).
 Run `clipkin vocabulary @clipkin/media-operations --tag Normalize` for the current selectors.
 

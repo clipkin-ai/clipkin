@@ -59,7 +59,7 @@ clipkin/
 ```
 
 Packages are named after what they do: `caption-fine` is a caption style, `provider-replicate`
-connects Replicate, `seedance` describes the Seedance models. Each has its own `README.md`,
+connects your Clipkin account, `seedance` describes the Seedance models. Each has its own `README.md`,
 `src/` and `test/`.
 
 Real video projects don't live in this folder. The examples here are fixtures for the tests; a video
@@ -81,6 +81,5 @@ project is its own folder with its own `package.json`
 | [Testing](./testing.md) | The test runner, test patterns and the tests that run only on request |
 | [Conventions](./conventions.md) | Naming, module boundaries, TypeScript settings and stored data |
 | [Use Clipkin in your Agent](./agents.md) | The agents Clipkin works with, and setting them up |
-| [Model and deployment services](./service-partners.md) | Every model service Clipkin can use, and running your own |
 
 Studio's interface can be translated: `packages/studio/LOCALIZATION.md` explains the language files.

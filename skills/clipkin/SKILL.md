@@ -1,6 +1,6 @@
 ---
 name: clipkin
-description: Direct and produce videos with Clipkin — generated images, video and voices composed with authored components, from a brief, a reference video or supplied material. Covers Reel/Grade/Slate authoring, Builds and pricing, Studio review, and Runtime, Provider and credential setup.
+description: Direct and produce videos with Clipkin — generated images, video and voices composed with authored components, from a brief, a reference video or supplied material. Covers Reel/Grade/Slate authoring, Builds and pricing, Studio review, and connecting the Clipkin account.
 ---
 
 # Clipkin
@@ -29,9 +29,9 @@ takes time. When you need a decision, frame the question so the actual choice is
 temperament the video calls for, whether that is dry wit, tenderness, social savvy, understatement or
 gleeful nonsense, while staying observant, imaginative and honest underneath it.
 
-Some decisions belong to the user, not to you: what they ultimately want, private facts, which
-accounts to connect, any large download or machine setup, and money. Everything else you settle, and
-once settled it goes into the work and the project notes.
+Some decisions belong to the user, not to you: what they ultimately want, private facts, any large
+download or machine setup, and money. Everything else you settle, and once
+settled it goes into the work and the project notes.
 
 ## How a Clipkin piece is built
 
@@ -97,22 +97,19 @@ live — and say what can begin immediately. The Skill and the
 or generation credit comes with them.
 
 Once the material plan takes shape, explain in plain terms which capabilities it needs and which
-services could supply them. Every model capability runs through a Provider that the Runtime Profile
-binds to an account: in a hosted Clipkin workspace those accounts are already connected by the
-platform; on the user's own install, generation can be billed to their Clipkin account with one
-personal key ([Connect a Clipkin account](references/environment/model-and-provider.md#connect-a-clipkin-account)),
-or the user stores their own vendor keys (the starter Profile
-routes every generation model — images, video, voices, word timing and background removal — through
-one Replicate token; ElevenLabs, Fish Audio, MiMo, Volcengine and the other direct vendors are added
-only when the work needs them). Picking a service and
-storing its credential are two distinct steps. For the decision, the connection steps and the public
-SDK, read [Models and Providers](references/environment/model-and-provider.md); keep using any
-service the user already chose wherever it can serve.
+models could supply them. Every generation model runs through the user's Clipkin account and is paid
+with their credits: in a hosted Clipkin workspace it is already connected; on the user's own install
+the starter Profile routes every model — images, video, voices, word timing and background removal —
+through `replicate.default`, connected to their account with one personal key
+([Connect a Clipkin account](references/environment/model-and-provider.md#connect-a-clipkin-account)).
+There are no vendor accounts or keys to connect. For the model choice, the connection steps and
+pricing, read [Models and Providers](references/environment/model-and-provider.md); keep using any
+model the user already chose wherever it can serve.
 
 **The example projects predate the Replicate starter.** The podcast, interview and ranking-football
 examples (and the image and voice examples drawn from them) use Fish Audio voices and Seedance person
-references, which the starter does not serve. Learn their structure, direction and reasoning; take the
-model choices from this Skill instead (Qwen3 or MiniMax voices; no person references on Replicate).
+references, which the Clipkin account does not serve. Learn their structure, direction and reasoning;
+take the model choices from this Skill instead (Qwen3 or MiniMax voices; MiniMax H3 for people).
 
 Measured speech timing comes from word-level transcription — hosted, or local WhisperX — and is what
 lets picture changes follow speech. Someone talking on screen does not by itself require it; a face
@@ -213,12 +210,11 @@ next to the video so they can see how it is put together and what they can chang
 
 ## Rules that always apply
 
-- **Money needs an agreement.** Before anything is charged, settle which account pays, which work is
-  covered and the expected cost or budget. `clipkin pricing <run>` quotes every request and adds a Run
-  estimate — vendor cost, price in credits, the hold reserved before the Build — and
-  `clipkin usage <build>` shows what was really metered afterwards. Write the agreement into the Brief
-  and apply it to all covered transcription, generation and processing; anything outside its scope,
-  cost or accounts goes back to the user. Having a connected account is access, not permission to
+- **Money needs an agreement.** Before anything is charged, settle which work is covered and the
+  expected cost or budget. `clipkin pricing <run>` quotes every request and adds a Run estimate in
+  credits. Write the agreement into the Brief
+  and apply it to all covered transcription, generation and processing; anything outside its scope
+  or cost goes back to the user. Having a connected account is access, not permission to
   spend. Details: [Builds](references/production/builds.md#work-within-the-agreed-paid-scope).
 - **Reuse is explicit.** Continuations carry finished work forward; new adaptations start from the
   reference and the requested changes. Weigh old material against the current Brief and Treatment,
@@ -247,6 +243,22 @@ next to the video so they can see how it is put together and what they can chang
   project components. When execution breaks, investigate and repair through the
   [integration guidance](references/environment/model-and-provider.md), and explain any material change.
 
+## Before running `clipkin check`
+
+Each failed check is another round of work. These mistakes cause most of them:
+
+- **A tag's prefix is its import alias.** `<ranking:…>` needs `<import as="ranking" from="@clipkin/ranking@1"/>`;
+  an import without `as` brings its tags in unprefixed.
+- **Values connect through braces and published output paths.** `during={program.window}`, not
+  `during="program"`; `prompt={direction}`, never a quoted literal. Output paths are package vocabulary
+  ([Source syntax](references/production/source-syntax.md#braces-connect-values)).
+- **Sizes are declared, not written as text.** Declare `<space:Extent id="still" width="1536" height="1024"/>`
+  and pass `extent={still}`, not `extent="1536x1024"`.
+- **Attributes and Grade properties are exactly what `clipkin vocabulary <package>` lists**, with the
+  value formats it shows. Look before writing a Surface or rule you haven't used in this production,
+  rather than guessing a name or format.
+- Write the whole file, run `clipkin check` once, and fix everything it reports before running it again.
+
 ## Where the current question is answered
 
 Several pages often apply at once. Open what the work needs now, and come back when a preview or
@@ -266,7 +278,7 @@ attributes, APIs and model limits.
 | Topic | Page |
 | --- | --- |
 | Installing or updating the executable and Skill; reusing tools and produced work | `references/environment/distribution.md` |
-| Picking model services, connecting accounts or deployments, rate cards and metering, writing a project Model or Provider | `references/environment/model-and-provider.md` |
+| Picking models, connecting the Clipkin account, pricing, refused requests | `references/environment/model-and-provider.md` |
 | Profile selection and edits, credentials, bindings, capacity, when changes apply | `references/environment/profile.md` |
 | Local media tools, browsers, WhisperX, helpers, caches, mirrors, logs | `references/environment/local-tools.md` |
 
@@ -275,6 +287,7 @@ attributes, APIs and model limits.
 | Topic | Page |
 | --- | --- |
 | Reading a reference video or link | `references/creation/reference-video.md` |
+| Cloning a reference right the first time: blueprint, voice and draft checks (`clipkin shots`, `voice-check`, `compare`) | `references/creation/clone-checks.md` |
 | Pinning down the target and the user's request | `references/creation/brief.md` |
 | Swapping a person, object, world, performance, script or sound; blending references | `references/creation/transformations.md` |
 | Wording, pronunciation, performable passages, semantic links, measured delivery | `references/creation/script-and-time.md` |
@@ -287,7 +300,7 @@ attributes, APIs and model limits.
 | Generated people, settings, products, B-roll stills, camera views, image references and prompts | `references/playbooks/craft/image-direction.md` |
 | Designing or adapting a voice, its appeal and casting sample | `references/playbooks/craft/voice-direction.md` |
 | Generated video, footage-guided action or camera, visible speech, silent action, cuts, durations | `references/playbooks/craft/video-direction.md` |
-| Who carries a passage, voice continuity, covered performance, narration, supplied speech; which speech package (Qwen3, MiniMax, or a declared ElevenLabs / Fish Audio / MiMo) | `references/playbooks/craft/voice-and-performance.md` |
+| Who carries a passage, voice continuity, covered performance, narration, supplied speech; which speech package (Qwen3 or MiniMax) | `references/playbooks/craft/voice-and-performance.md` |
 | B-roll and material-led pictures: sources, role, composition, handoffs | `references/playbooks/craft/b-roll.md` |
 | Screen demos: real UI evidence, captured interaction, illustration, guiding attention | `references/playbooks/craft/screen-demonstrations.md` |
 | Caption grouping in Chinese, English or mixed scripts; rhythm, style, placement | `references/playbooks/craft/captions.md` |

@@ -56,17 +56,6 @@
     "@clipkin/visual-track": "^1.0.0",
     "@clipkin/volcengine-matting": "^1.0.0",
     "@clipkin/wan": "^1.0.0",
-    "@clipkin/provider-byteplus": "^1.0.0",
-    "@clipkin/provider-openai": "^1.0.0",
-    "@clipkin/provider-google": "^1.0.0",
-    "@clipkin/provider-xai": "^1.0.0",
-    "@clipkin/provider-minimax": "^1.0.0",
-    "@clipkin/provider-alibaba": "^1.0.0",
-    "@clipkin/provider-pixverse": "^1.0.0",
-    "@clipkin/provider-elevenlabs": "^1.0.0",
-    "@clipkin/provider-fishaudio": "^1.0.0",
-    "@clipkin/provider-mimo": "^1.0.0",
-    "@clipkin/provider-volcengine": "^1.0.0",
     "@clipkin/provider-replicate": "^1.0.0"
   }
 }

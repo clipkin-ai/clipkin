@@ -47,13 +47,12 @@ the timing lands.
 
 ### You stay in charge of what matters
 
-You decide the goal, the facts only you know (prices, claims, names), which accounts to use and how
-much to spend. The agent checks what's already set up and explains the options when something is
-missing. For example, word timing can run through Replicate or on your computer with WhisperX.
+You decide the goal, the facts only you know (prices, claims, names) and how much to spend. The agent
+checks what's already set up and explains the options when something is missing. For example, word
+timing can run through your Clipkin account or on your computer with WhisperX.
 
-By default every model goes through one connection, Replicate or your Clipkin account
-([Quickstart, step 3](../quickstart.md#_3-choose-how-to-pay-for-generation)). Other vendors are added,
-with their own keys, only when the work needs them.
+Every model goes through one connection, your Clipkin account
+([Quickstart, step 3](../quickstart.md#_3-connect-your-clipkin-account)).
 
 Before anything is paid for, the agent shows you the plan and its estimated cost from
 `clipkin pricing`, and you agree on scope and budget. Within that, it makes the ordinary creative and

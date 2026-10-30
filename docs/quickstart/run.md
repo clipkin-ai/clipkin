@@ -26,7 +26,7 @@ clipkin get <build-id> --output final.video --to output/final.mp4
 1. **`package.json`** with `"clipkin": { "project": true }` marks the folder as a Clipkin project.
    Commands look for it, so it has to exist first.
 2. **`runtime init`** writes the starter Runtime Profile (below) and selects it.
-3. **`auth login`** stores the key for the generation service.
+3. **`auth login`** stores your Clipkin account key, which pays for generation.
 4. **`runtime up`** prepares the tools that run on your computer and starts Clipkin's background
    worker.
 5. **`plan`, `pricing` and `build`** check the work, show the cost and make the video.
@@ -102,7 +102,7 @@ writes a starter one:
 
 | Endpoint | Does | Needs |
 |---|---|---|
-| `replicate.default` | Every generation model in the default setup: video, images, voices, background removal, and word timing | A Replicate token or a Clipkin account key |
+| `replicate.default` | Every generation model: video, images, voices, background removal, and word timing, through your Clipkin account | A Clipkin account key |
 | `media.local` | Preparing, trimming and mixing media | FFmpeg installed on your computer |
 | `html.local` | Rendering the final video | A headless Chrome, which `clipkin runtime up` downloads |
 | `image.opencv.local` | [Image operations](./images.md) | [uv](https://docs.astral.sh/uv/), which `clipkin runtime up` uses to set up Python |
@@ -113,38 +113,25 @@ writes a starter one:
 - **`clipkin runtime status`** checks the worker and tools. **`clipkin runtime down`** stops the worker,
   and **`clipkin programs down`** stops the local tools.
 
-To use a vendor's own service as well, such as BytePlus for Seedance 2.5, add its Endpoint to the
-Profile. [Models and Providers](../guide/providers.md) explains how, and
-[Model and deployment services](../guide/service-partners.md) lists them.
+## Connect your Clipkin account
 
-## Connect your models
+Generation runs through your Clipkin account and is paid with your credits. Create a key on your
+[Account page](/account) under **Local access**, then store it:
 
 ```bash
 clipkin auth login replicate.default
 ```
 
-Clipkin asks for the key without showing what you type, or opens a sign-in page when the service
-offers one. Keys are stored per computer, not per project: in the system keychain on macOS and
-Windows, and in private files on Linux. Never paste a key into your agent's chat.
+Clipkin asks for the key without showing what you type. Keys are stored per computer, not per
+project: in the system keychain on macOS and Windows, and in private files on Linux. Never paste a
+key into your agent's chat.
 
-- **`clipkin auth status replicate.default`** shows what's stored for that Endpoint.
-- **`clipkin doctor --endpoint replicate.default`** checks that one works.
+- **`clipkin auth status replicate.default`** shows what's stored.
+- **`clipkin doctor --endpoint replicate.default`** checks that it works.
 - **`clipkin auth logout replicate.default`** removes it.
 
-### With a Clipkin account
+Generation is charged to your credits as each request is made. A few things to know:
 
-Instead of a Replicate token, you can generate on your Clipkin credits. Create a key on your
-[Account page](/account) under **Local access**, and ask your agent to connect it. It changes
-`replicate.default` in the Profile to point at Clipkin, using the block shown on that page, and then
-you store the Clipkin key the same way:
-
-```bash
-clipkin auth login replicate.default
-```
-
-Generation is then charged to your credits as each request is made. A few things to know:
-
-- **Only the Replicate models are covered.** Another vendor's Endpoint still needs your own key.
 - **Cloning a voice from a recording** asks you to confirm on the Account page that it's your voice
   or that you have permission. The agent tells you when.
 - **Errors explain themselves:** 402 means you need more credits, and 401 means the key is missing,
@@ -164,22 +151,15 @@ doesn't offer, a reference a service refuses. A build with problems in its plan 
 **`pricing`** estimates the cost of those requests. It needs a Profile, and calls no service: rates
 come with Clipkin. It ends with a summary:
 
-- **Upstream cost:** what the services charge.
-- **Price:** in dollars and credits, at Clipkin's price policy.
+- **Price:** in dollars and credits.
 - **Held:** a safety margin of credits above the estimate, used when a build runs in Clipkin's hosted
   app. Builds on your own computer don't reserve anything.
 - **Requests:** how many have a price, how many run locally for free, and how many have no price
   yet. A request has no price when the service would refuse it (`plan` says why), or when its cost
   is only measured during the build, such as word timing priced by audio length.
 
-Which figure you pay depends on how you're connected:
-
-- **On a Clipkin account,** you pay credits at Clipkin's prices, charged per request. The estimate is a
-  close guide; the Account page shows the actual charges.
-- **With your own keys,** each service bills you directly at its own prices, and the credit figures
-  don't apply.
-
-After a build, `clipkin usage <build-id>` totals what the services actually reported charging.
+Credits are charged per request. The estimate is a close guide; the Account page shows the actual
+charges.
 
 ## Build
 
@@ -222,7 +202,7 @@ an existing file is never overwritten. You can also find results in Studio's **O
 | "pricing needs a Runtime" | Run `clipkin runtime init`, or select one with `clipkin runtime use` |
 | `RUNTIME_CREDENTIAL_MISSING` | Store the key with `clipkin auth login <endpoint>` |
 | `MANAGED_PROGRAM_DOWN` | Start the local tools with `clipkin runtime up` |
-| A request listed as `replicate.default: …` with a reason, and "not supported" in the summary | The service won't take it: a model it doesn't offer, a size it doesn't make, or a reference it refuses. Change the request or add a service that offers it |
+| A request listed as `replicate.default: …` with a reason, and "not supported" in the summary | The service won't take it: a model it doesn't offer, a size it doesn't make, or a reference it refuses. Change the request, for example to a model that accepts it |
 | `UNKNOWN_SOURCE_EXPORT` | A `target` or `satisfy` names an output the `.reel` file doesn't have |
 | "Build … does not contain Output …" | A `build-record` points at the wrong build or output name |
 | `SOURCE_HEADER_MISSING` | The Run file's first line is missing |

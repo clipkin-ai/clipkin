@@ -86,14 +86,14 @@ Each produces a video, `{id.video}`, which you then prepare and place as in
 
 | Attribute | Required | Values |
 |---|---|---|
-| `model` | yes | `standard`, `fast`, `mini` (Seedance 2.0 in three sizes) or `2.5` |
+| `model` | yes | `standard`, `fast` or `mini` (Seedance 2.0 in three sizes) |
 | `prompt` | yes | A text, such as a `text:Value` |
-| `duration` | yes | Whole seconds: 4–15, or 4–30 on `2.5` (where `-1` lets the model choose) |
-| `resolution` | no | `720p` unless set. `480p` and `720p` on all models; `1080p` on `standard` and `2.5`; `4k` on `standard` |
+| `duration` | yes | Whole seconds: 4–15 |
+| `resolution` | no | `720p` unless set. `480p` and `720p` on all models |
 | `aspect-ratio` | no | `9:16` unless set. Also `1:1`, `4:3`, `3:4`, `16:9`, `21:9` and `adaptive` |
 | `generate-audio` | no | **`false` unless set**, so takes are silent by default. Set `true` for speech or sound |
 
-`TextVideo` also takes `web-search` (not offered through Replicate or BytePlus). `FrameVideo` needs
+`FrameVideo` needs
 `first-frame` with `first-frame-person-reference`, plus `last-frame` with
 `last-frame-person-reference` if you give a last frame.
 
@@ -121,39 +121,23 @@ Each `seedance:Reference` gives one `image`, `video` or `audio`:
 - **Audio** carries a voice or a sound. On Seedance 2.0 it needs at least one image or video alongside
   it. Any common audio format works except `.m4a`: convert that to MP3 or WAV first.
 
-Seedance 2.0 takes up to 9 images, 3 videos and 3 audio clips, 12 in all. Seedance 2.5 takes up to
-30 images, 10 videos and 10 audio clips. The services also limit how long reference clips can be:
-15 seconds of video and audio combined on Replicate; on BytePlus, 2 to 15 seconds each and 15 in
-total (30 on 2.5). Clipkin doesn't measure this for you, so a clip over the limit is refused by the
-service.
+Seedance 2.0 takes up to 9 images, 3 videos and 3 audio clips, 12 in all, with up to 15 seconds of
+reference video and audio combined. Clipkin doesn't measure this for you, so a clip over the limit is
+refused.
 A reference's position matters: prompts refer to them in order, as `@image1`, `@audio1` and so on.
 
 ### References that show a person
 
 Every image and video reference states whether it shows a person, with `person-reference="true"` or
-`"false"`. This isn't optional, because services treat real people differently:
+`"false"`. This isn't optional: **Seedance refuses any reference marked as showing a person,** and it
+also refuses realistic faces it detects, generated ones included. Product, place and object references
+work normally.
 
-- **Replicate**, which a Clipkin account and the default setup use, **refuses any reference marked as
-  showing a person.** Product, place and object references work normally.
-- **BytePlus**, Seedance's own service, accepts them only when a host application provides an
-  approved way to share the image with it. A BytePlus account on its own isn't enough.
+**For a real or realistic person, use MiniMax H3** (`minimax-h3:ReferenceVideo` or `FrameVideo`),
+which accepts a person's photo. PixVerse V6 accepts a person's photo as a first frame only. Mark
+Seedance references truthfully either way: `clipkin plan` shows a refusal before anything is paid for.
 
-**For a real presenter from a photo, use MiniMax H3** (`minimax-h3:ReferenceVideo` or
-`FrameVideo`), which accepts a person's photo through Replicate, so it works on a Clipkin account.
-PixVerse V6 accepts a person's photo as a first frame only. Mark Seedance references truthfully
-either way: `clipkin plan --runtime <profile>` shows a refusal before anything is paid for.
-
-### Where each model runs
-
-| | Replicate (default, Clipkin account) | BytePlus (your own account) |
-|---|---|---|
-| Seedance 2.0 `standard`, `fast`, `mini` | Yes, up to 720p (4k only when the operator sets a price for it) | Yes, every resolution |
-| Seedance 2.5 | No | Yes |
-| References showing a person | No | Only with a host-provided asset link |
-| `web-search` | No | No (only through Volcengine) |
-| Prompts over 4,000 characters | No | Yes |
-
-[Models and Providers](../guide/providers.md) explains how to add a service to your setup.
+Prompts are limited to 4,000 characters.
 
 ### Reuse a take's voice
 
@@ -248,7 +232,7 @@ speakers `<A>` and `<B>`, or say in the `action` who is who.
 </seedance:ReferenceVideo>
 ```
 
-This take shows a person, so it is refused on Replicate and a Clipkin account (see
+This take shows a person, so Seedance refuses it (see
 [above](#references-that-show-a-person)). The same template wording works as the prompt for
 MiniMax H3.
 
@@ -258,10 +242,9 @@ names against the [settings table](./styles.md#settings-for-generated-takes).
 
 ## Other models
 
-Seedance isn't the only option. These are also available through Replicate, so they work on a Clipkin
-account and the default setup, within the limits noted:
+Seedance isn't the only option. These also run through your Clipkin account, within the limits noted:
 
-| Kind | Model | Package | Elements | Through Replicate |
+| Kind | Model | Package | Elements | Limits |
 |---|---|---|---|---|
 | Images | Seedream | `@clipkin/seedream` | `TextImage`, `ReferenceImage` | Yes |
 | Images | GPT Image | `@clipkin/gpt-image` | `Image` | 1K only, at auto, 1:1, 3:2 or 2:3 |
@@ -286,8 +269,8 @@ which you then pass to `ClonedSpeech`. To see every attribute of one, run
 |---|---|
 | "duration has to be a whole number" | Write seconds as a number: `duration="7"` |
 | "… has to be from 4 to 15 seconds" | Choose a length the model accepts |
-| "resolution for seedance-2-mini only takes 480p, 720p" | Lower the resolution, or use `standard` or `2.5` on a service that offers 1080p (not Replicate) |
-| "model only takes standard, fast, mini or 2.5" | Use one of those names (`"2"` isn't one) |
+| "resolution for seedance-2-mini only takes 480p, 720p" | Lower the resolution to `480p` or `720p` |
+| "model only takes standard, fast, mini or 2.5" | Use `standard`, `fast` or `mini` (`"2"` isn't one) |
 | "has to use the package: asset scheme" | The file path doesn't start with `./` or `../` |
 | "cannot be m4a" | Convert the reference audio to MP3 or WAV |
 | "port referenceAudio needs one or more of referenceImage, referenceVideo" | Add an image or video reference next to the audio |

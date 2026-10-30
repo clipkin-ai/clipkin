@@ -48,7 +48,10 @@ reads its own selection, and paths on the command line are relative to where you
   "endpoints": {
     "replicate.default": {
       "use": "@clipkin/provider-replicate",
-      "config": { "apiKey": { "store": "local", "key": "replicate.api-key" } }
+      "config": {
+        "baseUrl": "https://clipkin.com/api/local/v1/vendor/replicate",
+        "apiKey": { "store": "local", "key": "clipkin.account" }
+      }
     },
     "media.local": { "use": "@clipkin/media-local" }
   },
@@ -59,10 +62,11 @@ reads its own selection, and paths on the command line are relative to where you
 - **`dataRoot`** is where running builds keep their working files and logs, relative to the Profile.
 - **`credentials`** names where keys come from. The local store keeps them in your system keychain,
   or in private files on Linux. The env store reads them from environment variables.
-- **`endpoints`** lists the services, each with its Provider (`use`) and settings (`config`). Keys are
-  referred to, never written in the file. An optional `pool` lets Endpoints share one capacity limit.
+- **`endpoints`** lists the services, each with its Provider (`use`) and settings (`config`).
+  `replicate.default` generates through your Clipkin account, which is the only address it accepts.
+  Keys are referred to, never written in the file. An optional `pool` lets Endpoints share one capacity limit.
 - **`bindings`** say which Endpoint handles a kind of request when several could. The starter binds
-  word timing to Replicate:
+  word timing to your Clipkin account:
 
 ```json
 "bindings": {
@@ -93,8 +97,8 @@ environments) and starts the background worker. It doesn't sign in or start paid
 |---|---|
 | `clipkin programs prepare\|up\|status\|down --endpoint <name>` | Manage the local programs alone, without the worker |
 | `clipkin doctor [--endpoint <name>]` | Check the setup and each service's own diagnostics, without generating anything |
-| `clipkin auth status <endpoint>` | Show the keys stored for a service |
-| `clipkin auth login <endpoint>` | Store a key |
+| `clipkin auth status <endpoint>` | Show the key stored for an Endpoint |
+| `clipkin auth login replicate.default` | Store your Clipkin account key |
 
 A stored key or a reachable service doesn't guarantee every request will work, so read `doctor`'s
 warnings as well as its errors. Without a Profile selected, `doctor` checks only the project's

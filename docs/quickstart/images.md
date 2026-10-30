@@ -87,8 +87,7 @@ Each Transform gives `{id.image}`. The steps run in the order written:
 ## Cut a person out of a video
 
 To put a presenter over a different background, remove the background from their video first.
-BRIA background removal runs through Replicate, so it works on a Clipkin account and the default
-setup:
+BRIA background removal runs through your Clipkin account:
 
 ```reel
 <import as="bria" from="@clipkin/bria-matting@1"/>
@@ -107,9 +106,7 @@ it with a `visual:Clip` on top of the new background, as in [Timing & Assembly](
 `audio="default"` when you kept the sound, or `audio="none"` when you didn't. A spoken cutout can be
 aligned to its Script Segment like any other take.
 
-For clips longer than 60 seconds, the Volcengine portrait cutout (`matte:Portrait` from
-`@clipkin/volcengine-matting@1`) handles up to 20 minutes. It needs your own Volcengine AI MediaKit
-key, so it isn't available on a Clipkin account, and it has no `preserve-audio` option.
+For clips longer than 60 seconds, cut the clip into parts and remove the background from each.
 
 There's no background removal for still pictures. To get a picture with a transparent background,
 generate one that way: GPT Image (`Image` from `@clipkin/gpt-image@1`) accepts
