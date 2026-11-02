@@ -100,13 +100,13 @@ Once the material plan takes shape, explain in plain terms which capabilities it
 models could supply them. Every generation model runs through the user's Clipkin account and is paid
 with their credits: in a hosted Clipkin workspace it is already connected; on the user's own install
 the starter Profile routes every model — images, video, voices, word timing and background removal —
-through `replicate.default`, connected to their account with one personal key
+through `clipkin.default`, connected to their account with one personal key
 ([Connect a Clipkin account](references/environment/model-and-provider.md#connect-a-clipkin-account)).
 There are no vendor accounts or keys to connect. For the model choice, the connection steps and
 pricing, read [Models and Providers](references/environment/model-and-provider.md); keep using any
 model the user already chose wherever it can serve.
 
-**The example projects predate the Replicate starter.** The podcast, interview and ranking-football
+**The example projects predate the current setup.** The podcast, interview and ranking-football
 examples (and the image and voice examples drawn from them) use Fish Audio voices and Seedance person
 references, which the Clipkin account does not serve. Learn their structure, direction and reasoning;
 take the model choices from this Skill instead (Qwen3 or MiniMax voices; MiniMax H3 for people).

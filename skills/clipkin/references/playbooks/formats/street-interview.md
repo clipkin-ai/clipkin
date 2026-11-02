@@ -27,11 +27,11 @@ Once the shared image does its work, the derived prompts can be very short; the
 
 **The Kit.** `street-interview-v1` from `@clipkin/seedance-kits` takes this set in a fixed order:
 interviewer A, guest B, the shared view, then the two voices in A/B order (each a compact Voice
-Reference, by default a Qwen3 `VoiceDesign` clip; on Replicate both together stay within Seedance's
+Reference, by default a Qwen3 `VoiceDesign` clip; both together stay within Seedance's
 15 seconds of reference audio). Every ordinary generated clip
 reuses it. The three-view limit is how this Kit is designed; it does not restrict street interviews in
 general or Clipkin. The interviewer keeps hold of the microphone and moves it toward whoever is talking;
-extending it to the guest does not hand it over. Its camera views are person references, which the starter's Replicate Seedance refuses; see
+extending it to the guest does not hand it over. Its camera views are person references, which Seedance refuses; see
 [Model and provider](../../environment/model-and-provider.md#inputs-some-providers-refuse-until-the-request-changes)
 for the route before choosing it.
 

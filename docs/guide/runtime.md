@@ -46,10 +46,9 @@ reads its own selection, and paths on the command line are relative to where you
   "dataRoot": ".clipkin/runtimes/local",
   "credentials": { "local": { "use": "@clipkin/credential-store-local" } },
   "endpoints": {
-    "replicate.default": {
-      "use": "@clipkin/provider-replicate",
+    "clipkin.default": {
+      "use": "@clipkin/provider-clipkin",
       "config": {
-        "baseUrl": "https://clipkin.com/api/local/v1/vendor/replicate",
         "apiKey": { "store": "local", "key": "clipkin.account" }
       }
     },
@@ -63,20 +62,20 @@ reads its own selection, and paths on the command line are relative to where you
 - **`credentials`** names where keys come from. The local store keeps them in your system keychain,
   or in private files on Linux. The env store reads them from environment variables.
 - **`endpoints`** lists the services, each with its Provider (`use`) and settings (`config`).
-  `replicate.default` generates through your Clipkin account, which is the only address it accepts.
+  `clipkin.default` generates through your Clipkin account, which is the only address it accepts.
   Keys are referred to, never written in the file. An optional `pool` lets Endpoints share one capacity limit.
 - **`bindings`** say which Endpoint handles a kind of request when several could. The starter binds
   word timing to your Clipkin account:
 
 ```json
 "bindings": {
-  "@clipkin/whisperx@1#whisperx-alignment": "replicate.default"
+  "@clipkin/whisperx@1#whisperx-alignment": "clipkin.default"
 }
 ```
 
 - **`worker`** can set `executionMemoryMb` for the background worker (1024 by default).
 
-The starter Profile has `replicate.default`, `media.local`, `html.local` and `image.opencv.local`.
+The starter Profile has `clipkin.default`, `media.local`, `html.local` and `image.opencv.local`.
 Installing a Provider package only makes it available; listing it under `endpoints` gives it a job.
 The Model decides what a request means; the Provider decides what its service supports and what it
 costs. A request that fails on its Endpoint is never quietly sent through another account. Each
@@ -98,7 +97,7 @@ environments) and starts the background worker. It doesn't sign in or start paid
 | `clipkin programs prepare\|up\|status\|down --endpoint <name>` | Manage the local programs alone, without the worker |
 | `clipkin doctor [--endpoint <name>]` | Check the setup and each service's own diagnostics, without generating anything |
 | `clipkin auth status <endpoint>` | Show the key stored for an Endpoint |
-| `clipkin auth login replicate.default` | Store your Clipkin account key |
+| `clipkin auth login clipkin.default` | Store your Clipkin account key |
 
 A stored key or a reachable service doesn't guarantee every request will work, so read `doctor`'s
 warnings as well as its errors. Without a Profile selected, `doctor` checks only the project's

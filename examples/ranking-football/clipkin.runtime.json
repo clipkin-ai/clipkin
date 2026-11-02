@@ -7,48 +7,12 @@
     }
   },
   "endpoints": {
-    "replicate.default": {
-      "use": "@clipkin/provider-replicate",
+    "clipkin.default": {
+      "use": "@clipkin/provider-clipkin",
       "config": {
         "apiKey": {
           "store": "local",
-          "key": "replicate.api-key"
-        }
-      }
-    },
-    "elevenlabs.default": {
-      "use": "@clipkin/provider-elevenlabs",
-      "config": {
-        "apiKey": {
-          "store": "local",
-          "key": "elevenlabs.api-key"
-        }
-      }
-    },
-    "fishaudio.default": {
-      "use": "@clipkin/provider-fishaudio",
-      "config": {
-        "apiKey": {
-          "store": "local",
-          "key": "fishaudio.api-key"
-        }
-      }
-    },
-    "mimo.default": {
-      "use": "@clipkin/provider-mimo",
-      "config": {
-        "apiKey": {
-          "store": "local",
-          "key": "mimo.api-key"
-        }
-      }
-    },
-    "volcengine.default": {
-      "use": "@clipkin/provider-volcengine",
-      "config": {
-        "apiKey": {
-          "store": "local",
-          "key": "volcengine.api-key"
+          "key": "clipkin.account"
         }
       }
     },
@@ -68,6 +32,6 @@
     }
   },
   "bindings": {
-    "@clipkin/whisperx@1#whisperx-alignment": "replicate.default"
+    "@clipkin/whisperx@1#whisperx-alignment": "clipkin.default"
   }
 }

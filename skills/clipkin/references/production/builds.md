@@ -120,58 +120,53 @@ clipkin pricing path/to/build.slate
 `pricing` is an explicit, read-only network operation that needs a Runtime Profile. It creates no
 Build and submits no generation. Its report has two parts.
 
-**Per request: the Provider's quote.** Requests are grouped by capability, selected Endpoint and
-identical pricing material, with shared parameters shown once and request counts kept. For each group
-the report shows the price source URL and the Provider's machine-readable quote, in one of three forms:
+**Per request: the price in credits.** Requests are grouped by capability, selected Endpoint and
+identical pricing, with shared parameters shown once and request counts kept. Each group shows its
+price in one of three forms:
 
 | Quote | Shown as | Meaning |
 | --- | --- | --- |
-| Exact | `$0.42` | Every quantity is known from the request and the published rates. |
-| Estimate | `≈ $0.30–$0.60` plus `assumes …` lines | At least one quantity is assumed; the assumptions are stated and the range is honest. |
-| Not yet measurable | `≥ $0.10 (not yet measurable)` | The charge depends on media produced during this Build (for example the length of audio not yet generated); the amount is only a floor. |
+| Exact | `12 credits ($0.06)` | Every quantity is known from the request. |
+| Estimate | `12–24 credits ($0.06–$0.12)` plus `assumes …` lines | At least one quantity is assumed; the assumptions are stated and the range is honest. |
+| Not yet measurable | `at least 2 credits ($0.01)` | The charge depends on media produced during this Build (for example the length of audio not yet generated); the amount is only a floor. |
 
-Each quote lists its priced lines (`item: quantity unit × unit price`) and ends with
-`rates as of <date> (<vendor>)`. Requests whose Endpoint declares local pricing are summarized as a
-no-charge count (`--verbose` lists them). A Provider without machine-readable rates falls back to its
-price page or rate summary, a group may say `No price available`, and a failed price read is reported as
-such — all of these stay visible as uncertainty rather than disappearing.
+Requests that run locally are summarized as a free count (`--verbose` lists them). A group may say
+`No price available`, and a failed price read is reported as such — these stay visible as uncertainty
+rather than disappearing.
 
 **For the whole Run: the Run estimate.** After the groups comes a block like this:
 
 ```text
 Estimated cost of this Run
-  Upstream cost      $1.20–$1.80 (approximate)
-  Price to customer  $1.80–$2.70 · 180–270 credits
-  Held               311 credits set aside before the Build starts
-  Requests           3 with a price · 4 local · 1 without a price yet
+  Price     $1.80–$2.70 · 360–540 credits (approximate)
+  Requests  3 with a price · 4 local · 1 without a price yet
 ```
 
-- **Upstream cost** is what the model vendors charge, in USD. It is marked `(approximate)` when any quote
+- **Price** is what the user pays, in USD and in credits. It is marked `(approximate)` when any quote
   is an estimate and `(incomplete)` when some request cannot be measured yet.
-- **Price to customer** is what the user pays, in USD and in credits.
-- **Held** is the number of credits that will be set aside before the Build starts. It is sized from
-  the high end of the estimate plus a safety margin, so the Build cannot overspend it.
 - **Requests** counts requests with a price, local ones and those without a price yet; each request
-  without a price is then listed with its reason (no machine-readable rates, or not measurable before the Build).
+  without a price is then listed with its reason.
+
+On a hosted Clipkin workspace the block also shows **Held**: the credits set aside before the Build
+starts, sized from the high end of the estimate plus a safety margin. Quote the user only the price
+in credits, never a model service's own cost or rates.
 
 `--json` (format `clipkin.cli-pricing@1`) carries the same facts: each group's `requests` beside its
-`pricingDocuments` (whose `data` holds the Provider's original quote, format `clipkin.rate-quote@1`),
-plus an `estimate` object of format `clipkin.run-estimate@1` with `basis` (`exact`, `estimate` or
-`unknown`), `vendorLowMicros`/`vendorHighMicros`, `customerLowMicros`/`customerHighMicros` (micros are
-millionths of a US dollar), `creditsLow`/`creditsHigh`, `holdCredits` and the `unpriced` list. All
-groups are always in the JSON; `--limit <count>` shortens only the human view, and `--verbose` adds the
-original documents and the no-charge requests. If a Producer fails during planning, `pricing` still
-reports the rates it could read and exits with code 1.
+price, plus an `estimate` object of format `clipkin.run-estimate@1` with `basis` (`exact`, `estimate`
+or `unknown`), `customerLowMicros`/`customerHighMicros` (micros are millionths of a US dollar),
+`creditsLow`/`creditsHigh` and the `unpriced` list. All groups are always in the JSON; `--limit
+<count>` shortens only the human view. If a Producer fails during planning, `pricing` still reports
+the prices it could read and exits with code 1.
 
-When some requests are not yet measurable, complete the picture yourself: use the stated per-unit
-rate with an explicitly estimated quantity from the production plan (say, the expected seconds of a
-voice line), and keep that estimate labeled as yours, separate from measured figures. Then tell the
-user what this work should cost, which account would be billed, and where real uncertainty remains.
+When some requests are not yet measurable, complete the picture yourself: take the price of a
+comparable measured request with an explicitly estimated quantity from the production plan (say, the
+expected seconds of a voice line), and keep that estimate labeled as yours, separate from measured
+figures. Then tell the user what this work should cost in credits and where real uncertainty remains.
 
-**Actual charges are metered, not estimated.** After each request completes, its Provider records
-what it actually cost, priced from the final request and any usage the vendor returned, in the
-Build's log. `clipkin usage <build-id>` totals those metered charges (vendor cost, customer price and
-credits, one line per charge) and says when the Build is still running and the totals are partial.
+**Actual charges are metered, not estimated.** After each request completes, what it actually cost is
+recorded in the Build's log. `clipkin usage <build-id>` totals those charges (price and credits, one
+line per charge) and says when the Build is still running and the totals are partial. On the user's
+own install, their Clipkin Account page shows the same charges.
 
 ### Read the remaining requests against the change
 

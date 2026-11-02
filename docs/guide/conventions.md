@@ -12,7 +12,7 @@ package scope and Clipkin's public entry points; see [Packages and Extension](./
 |---|---|---|
 | Package folder | lower-case with hyphens | `packages/narrative-speech-alignment/` |
 | Package name | `@clipkin/` plus the folder name | `@clipkin/narrative-speech-alignment` |
-| Provider for an outside service | `provider-` prefix | `@clipkin/provider-replicate` |
+| Provider for an outside service | `provider-` prefix | `@clipkin/provider-clipkin` |
 | Source file | lower-case with hyphens | `source-time.ts` |
 | Exported type or class | PascalCase | `SpeechAlignmentError` |
 | Exported function or value | camelCase | `alignNarrative` |

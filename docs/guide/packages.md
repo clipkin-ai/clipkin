@@ -71,8 +71,8 @@ An extension is an ordinary npm package:
 - **Depend on `@clipkin/clipkin`** as a development dependency and a peer dependency, so it builds
   against the same release that will load it.
 - **Use the narrow public entry points** it needs: for example `@clipkin/clipkin/author` for
-  components, `@clipkin/clipkin/producer` and `@clipkin/clipkin/admission` for producing results,
-  `@clipkin/clipkin/markup` for the authoring language, and `@clipkin/clipkin/endpoint` for Providers.
+  components, `@clipkin/clipkin/producer` and `@clipkin/clipkin/admission` for producing results, and
+  `@clipkin/clipkin/markup` for the authoring language.
 - **Compile it to JavaScript** and ship its code, assets and a README.
 - **Name its activation entry** in `package.json` under `"clipkin": { "activation": "…" }`. That entry
   tells Clipkin what the package provides, and Clipkin supplies its own APIs when it loads it.
@@ -81,7 +81,7 @@ Where to go next:
 
 - [Adding an Author Package](./author-packages.md) starts from a working example component.
 - [Component Anatomy](./component-anatomy.md) explains the parts of a component.
-- [Models and Providers](./providers.md) covers new models, services and keys.
+- [Models and Providers](./providers.md) covers how generation reaches your Clipkin account.
 - [Runtime](./runtime.md) covers Profiles and how Providers are configured.
 
 Each package's README documents its exact types and usage, and the installed package carries its

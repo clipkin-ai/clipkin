@@ -28,18 +28,17 @@ installed, no service is contacted, nobody is logged in and no Worker starts.
 The starter is the Distribution's default selection:
 
 - one writable credential Store, `local` (`@clipkin/credential-store-local`);
-- `replicate.default` (`@clipkin/provider-replicate`), the only model Endpoint, which serves the image
+- `clipkin.default` (`@clipkin/provider-clipkin`), the only model Endpoint, which serves the image
   and video models, voices (Qwen3 TTS design, clone and preset speakers; MiniMax speech and voice
-  cloning), background removal (BRIA) and hosted word timing through the user's Clipkin account, at
-  `https://clipkin.com/api/local/v1/vendor/replicate` with the key
-  `{ "store": "local", "key": "clipkin.account" }`;
+  cloning), background removal (BRIA) and hosted word timing through the user's Clipkin account, with
+  the key `{ "store": "local", "key": "clipkin.account" }`;
 - three credential-free local Endpoints: `media.local` (FFmpeg media work), `html.local` (HTML
   rendering in a managed browser) and `image.opencv.local` (image operations);
 - `dataRoot: ".clipkin/runtimes/local"` and one binding,
-  `"@clipkin/whisperx@1#whisperx-alignment": "replicate.default"`, which keeps alignment on the account
+  `"@clipkin/whisperx@1#whisperx-alignment": "clipkin.default"`, which keeps alignment on the account
   when `whisperx.local` is declared later.
 
-`replicate.default` only accepts a Clipkin address; there are no vendor Endpoints to add.
+`clipkin.default` only accepts a Clipkin address; there are no vendor Endpoints to add.
 [The Provider overview](model-and-provider.md#choose-the-practical-capability-path-with-the-user)
 lists what each Endpoint serves. A declared Endpoint is a routing option, not a to-do item:
 an Endpoint nobody's Run demands needs no key, no login and no preparation. Keep the entries and
@@ -127,8 +126,8 @@ Overlap is common, so check it whenever an Endpoint is added:
 
 | Capability | Endpoints that can offer it |
 | --- | --- |
-| `@clipkin/whisperx@1#whisperx-alignment` | `replicate.default` (hosted Scribe; the starter binds it), plus `whisperx.local` when declared |
-| Every generation capability | `replicate.default` |
+| `@clipkin/whisperx@1#whisperx-alignment` | `clipkin.default` (hosted Scribe; the starter binds it), plus `whisperx.local` when declared |
+| Every generation capability | `clipkin.default` |
 
 A project that declares `whisperx.local` must replace the starter's alignment binding to say which one aligns speech:
 
@@ -140,7 +139,7 @@ A project that declares `whisperx.local` must replace the starter's alignment bi
 }
 ```
 
-Bind `"replicate.default"` (the starter's choice) instead to keep hosted transcription. Always copy
+Bind `"clipkin.default"` (the starter's choice) instead to keep hosted transcription. Always copy
 the complete capability key from the Model or Provider documentation rather than a model label. The same Source can
 then align locally in one deployment and through a hosted service in another.
 
@@ -151,7 +150,7 @@ intended binding. An account the work does not use never has to be logged in for
 
 [Local WhisperX](local-tools.md#select-local-whisperx-explicitly) shows the complete local alignment
 fragment, and [the Clipkin account](model-and-provider.md#connect-a-clipkin-account) shows the
-`replicate.default` fragment. Result storage and project-package resolution are unrelated to this routing.
+`clipkin.default` fragment. Result storage and project-package resolution are unrelated to this routing.
 
 ## Put secrets behind credential references
 
@@ -177,10 +176,9 @@ The starter already does this for its one model Endpoint:
     "local": { "use": "@clipkin/credential-store-local" }
   },
   "endpoints": {
-    "replicate.default": {
-      "use": "@clipkin/provider-replicate",
+    "clipkin.default": {
+      "use": "@clipkin/provider-clipkin",
       "config": {
-        "baseUrl": "https://clipkin.com/api/local/v1/vendor/replicate",
         "apiKey": { "store": "local", "key": "clipkin.account" }
       }
     }
@@ -191,8 +189,8 @@ The starter already does this for its one model Endpoint:
 To connect the user's Clipkin account:
 
 ```bash
-clipkin auth status replicate.default
-clipkin auth login replicate.default
+clipkin auth status clipkin.default
+clipkin auth login clipkin.default
 ```
 
 `login` asks for the key through secure terminal input and writes it to the Store. With
@@ -202,7 +200,7 @@ can replace or delete a damaged value without reading it, while `status` and exe
 read errors. On a hosted Clipkin workspace the platform supplies these credentials, so there is
 nothing for the user to store.
 
-`clipkin auth login replicate.default --clipkin https://clipkin.com` signs in through the browser. Its `login` then prints `Sign in through your browser: <url>` and waits. Run it as a
+`clipkin auth login clipkin.default --clipkin https://clipkin.com` signs in through the browser. Its `login` then prints `Sign in through your browser: <url>` and waits. Run it as a
 background task and give the user that URL. If the login does not finish on its own, the callback
 page shows a `<code>#<state>` value; while the CLI is still waiting, deliver it with
 `curl "http://127.0.0.1:<port>/callback?code=<code>&state=<state>"`, where `<port>` is the number
@@ -218,10 +216,9 @@ reference at a variable name you choose:
     "env": { "use": "@clipkin/credential-store-env" }
   },
   "endpoints": {
-    "replicate.default": {
-      "use": "@clipkin/provider-replicate",
+    "clipkin.default": {
+      "use": "@clipkin/provider-clipkin",
       "config": {
-        "baseUrl": "https://clipkin.com/api/local/v1/vendor/replicate",
         "apiKey": { "store": "env", "key": "CLIPKIN_ACCOUNT_KEY" }
       }
     }
@@ -250,7 +247,7 @@ Need. They are different controls, and there is no separate Build-wide model con
 | HTML renderer `workers`, `maxWorkers` | Fixed Chrome count per render, or the ceiling for `auto` |
 | HTML renderer `browserCapacity` | Chrome budget shared across admitted renders |
 
-Size limits from the account, not from habit: `replicate.default` defaults to 4 for the Endpoint and
+Size limits from the account, not from habit: `clipkin.default` defaults to 4 for the Endpoint and
 for each action. Each README lists which keys it accepts.
 
 A render budget, for example:

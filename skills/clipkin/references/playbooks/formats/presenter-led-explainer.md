@@ -155,8 +155,8 @@ The [video examples](https://github.com/clipkin-ai/clipkin/tree/main/examples) a
 their Sources, Runs and project packages. The [street interview](https://github.com/clipkin-ai/clipkin/tree/main/examples/interview)
 shows a presenter sharing a frame with derived close views, coordinated Moments and an independent
 Caption; the [semantic composition](https://github.com/clipkin-ai/clipkin/tree/main/examples/semantic-composition)
-shows graphics driven by named events in the Script. The presenter examples predate the Replicate
-starter: their Fish Audio voices and Seedance person references are not served by it, so take those
+shows graphics driven by named events in the Script. The presenter examples predate the
+current setup: their Fish Audio voices and Seedance person references are not served by it, so take those
 model choices from the [voice](../craft/voice-and-performance.md) and
 [video](../craft/video-direction.md) pages.
 

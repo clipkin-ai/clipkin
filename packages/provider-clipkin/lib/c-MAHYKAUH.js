@@ -1,0 +1,1 @@
+import{CLIPKIN_REPLICATE_BASE_URL as i,createReplicateProvider as r}from"@clipkin/provider-replicate";var t=i;function n(e={}){return r({...e,instance:e.instance??"clipkin.default",baseUrl:e.baseUrl??t,clipkinOnly:!0,clipkin:!0})}export{t as a,n as b};

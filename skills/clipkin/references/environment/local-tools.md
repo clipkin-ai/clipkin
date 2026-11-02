@@ -25,7 +25,7 @@ prepare the chosen setup following its Provider's instructions and the evidence 
 hardware and the network the machine can actually reach as well as files on disk. A cached Python
 environment may still lack the speech-model weights, or one language's aligner, that the first
 useful request needs. Existing weights are a point in favour of the local route; say so while still
-offering the hosted alternative (Scribe, through the Clipkin account's `replicate.default`, serves the
+offering the hosted alternative (Scribe, through the Clipkin account's `clipkin.default`, serves the
 same alignment capability). Starting a
 newly configured large model is preparation even when every weight is cached. A service the user
 already chose and that works can simply be carried forward.
@@ -229,8 +229,8 @@ from that render's diagnostics, and never "fix" it by quietly switching browsers
 ## Select local WhisperX explicitly
 
 `@clipkin/whisperx@1#whisperx-alignment` is served by two Providers: local WhisperX and hosted
-Scribe through the Clipkin account's `replicate.default`. The starter binds alignment to
-`replicate.default`. Both return the same aligned transcript evidence. When
+Scribe through the Clipkin account's `clipkin.default`. The starter binds alignment to
+`clipkin.default`. Both return the same aligned transcript evidence. When
 the user chooses local execution, merge this fragment, replacing the starter's alignment binding,
 and keep the other services the production uses:
 
@@ -255,7 +255,7 @@ and keep the other services the production uses:
 
 This example aligns Korean on a CPU with the modest `small` model; pick the model and languages for
 the real production. The binding is required whenever another alignment Endpoint is also declared,
-which is the case in the starter Profile (`replicate.default`). Without it, `clipkin transcribe`
+which is the case in the starter Profile (`clipkin.default`). Without it, `clipkin transcribe`
 and Builds that align speech fail on the ambiguity instead of choosing one.
 
 | Setting | What it selects |
@@ -332,7 +332,7 @@ Mainland China and other restricted networks can make specific hosts slow or unr
 reachable source from the user's actual network context and transfer evidence, never from the
 language they write in. Keep useful downloads and caches and change only the part that is blocked.
 Explain the changed outlook promptly, and when local preparation would dominate the production time,
-recommend the practical alternative: hosted alignment through the starter's `replicate.default` removes the
+recommend the practical alternative: hosted alignment through the starter's `clipkin.default` removes the
 speech-model download entirely, subject to the user's spending choice. Keep reference and
 component work moving meanwhile.
 

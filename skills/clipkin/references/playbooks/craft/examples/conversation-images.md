@@ -32,7 +32,7 @@ slot order. They also keep time-of-day, brightness, exposure or lighting phrases
 particular shots. For a new phone-video image, start from the current Craft page and the Kit, and
 add such language only when the scene itself needs that visible fact. A runnable version of the
 podcast case, built on the Kit, is in `examples/podcast/reference.reel` in the Clipkin repository.
-That project predates the Replicate starter: keep its image direction, but take voice and
+That project predates the current setup: keep its image direction, but take voice and
 person-reference choices from the current Craft pages, since its Fish Audio voices and Seedance person
 references are not served by the starter.
 

@@ -181,10 +181,9 @@ affected interval and its handoffs afterwards, then judge it within the whole Fi
 better, revisit your explanation before trying another adjustment.
 
 Asking for different *paid* media is a production decision, and its extra requests must show up in
-`clipkin plan`. Before submitting, run `clipkin pricing <run>`: per request it shows the Provider's
-machine-readable quote (exact, an estimate with its assumptions, or "not yet measurable" when it
-depends on media produced during the Build), followed by a Run estimate block with vendor cost in USD,
-the customer price in credits and the credit hold reserved before the Build. `--json` carries the same
+`clipkin plan`. Before submitting, run `clipkin pricing <run>`: per request it shows the price in
+credits (exact, an estimate with its assumptions, or "not yet measurable" when it depends on media
+produced during the Build), followed by a Run estimate with the total price in credits. `--json` carries the same
 as an `estimate` object (`clipkin.run-estimate@1`); actual charges are metered from each completed
 request. Composition changes should reuse the accepted Outputs instead.
 

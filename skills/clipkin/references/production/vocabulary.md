@@ -55,7 +55,7 @@ omit the field. First- and last-frame forms use `first-frame-person-reference` a
 `last-frame-person-reference`, and the installed README owns which forms are required. The
 [Provider](../environment/model-and-provider.md) turns these facts into the chosen service's media
 handling, so no service instructions need to leak into the creative prompt. State the fact
-truthfully even when it decides the route: the starter's Replicate Seedance refuses any person
+truthfully even when it decides the route: Seedance refuses any person
 reference, and the refusal shows in `clipkin plan` before anything is paid for
 ([alternatives](../environment/model-and-provider.md#inputs-some-providers-refuse-until-the-request-changes)).
 

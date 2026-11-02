@@ -15,9 +15,7 @@
     "@clipkin/composition": "^1.0.0",
     "@clipkin/credential-store-env": "^1.0.0",
     "@clipkin/credential-store-local": "^1.0.0",
-    "@clipkin/elevenlabs-speech": "^1.0.0",
     "@clipkin/film": "^1.0.0",
-    "@clipkin/fishaudio-speech": "^1.0.0",
     "@clipkin/fontsource": "^1.0.0",
     "@clipkin/generation": "^1.0.0",
     "@clipkin/gpt-image": "^1.0.0",
@@ -29,7 +27,6 @@
     "@clipkin/image-operations": "^1.0.0",
     "@clipkin/media": "^1.0.0",
     "@clipkin/media-operations": "^1.0.0",
-    "@clipkin/mimo-speech": "^1.0.0",
     "@clipkin/minimax-h3": "^1.0.0",
     "@clipkin/minimax-speech": "^1.0.0",
     "@clipkin/nano-banana": "^1.0.0",
@@ -54,8 +51,8 @@
     "@clipkin/timeline": "^1.0.0",
     "@clipkin/timeline-author": "^1.0.0",
     "@clipkin/visual-track": "^1.0.0",
-    "@clipkin/volcengine-matting": "^1.0.0",
     "@clipkin/wan": "^1.0.0",
-    "@clipkin/provider-replicate": "^1.0.0"
+    "@clipkin/provider-replicate": "^1.0.0",
+    "@clipkin/provider-clipkin": "^1.0.0"
   }
 }

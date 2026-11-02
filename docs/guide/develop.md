@@ -58,7 +58,7 @@ clipkin/
 └── scripts/          build helpers
 ```
 
-Packages are named after what they do: `caption-fine` is a caption style, `provider-replicate`
+Packages are named after what they do: `caption-fine` is a caption style, `provider-clipkin`
 connects your Clipkin account, `seedance` describes the Seedance models. Each has its own `README.md`,
 `src/` and `test/`.
 
@@ -74,7 +74,7 @@ project is its own folder with its own `package.json`
 | [Packages and Extension](./packages.md) | How components, models and services arrive as packages, and how to share yours |
 | [Adding an Author Package](./author-packages.md) | Building a new component, step by step |
 | [Component Anatomy](./component-anatomy.md) | What a component is made of inside |
-| [Models and Providers](./providers.md) | Connecting accounts, and adding a model or a service |
+| [Models and Providers](./providers.md) | How generation reaches your Clipkin account |
 | [Runtime](./runtime.md) | Profiles, workers, builds and their results |
 | [Studio Companions](./studio-companion-architecture.md) | Giving a component timeline items and controls in Studio |
 | [Timing edits in Studio](./studio-temporal-windows.md) | Letting Studio edit the timing a component declares |

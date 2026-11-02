@@ -25,10 +25,9 @@ parody UI. It does not automatically inherit the host's iPhone capture paragraph
 
 ## Work with the example
 
-The example Profiles use local media/rendering and the direct vendor Providers (`<vendor>.default`)
-for hosted capabilities. They illustrate execution choices; store the intended vendor keys with
-`clipkin auth login <vendor>.default` or select project Providers before paid work.
-Existing production projects can retain their own Providers independently of these example defaults.
+The example Profiles use local media and rendering, and generate through your Clipkin account
+(`clipkin.default`); connect it with `clipkin auth login clipkin.default` before paid work. Its
+voices use Fish Audio, which the account does not offer: adapt them to Qwen3 or MiniMax first.
 
 Run `npm ci` in this directory to install the locked Clipkin, fonts and
 [`@clipkin/ranking`](https://www.npmjs.com/package/@clipkin/ranking) dependencies from npm.

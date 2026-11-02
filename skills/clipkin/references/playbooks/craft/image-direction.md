@@ -202,12 +202,11 @@ Practical points:
   children, in the order the prompt refers to them. The Text itself binds no media.
 - GPT Image 2 is the usual model for this direction. `2K` generally suits a full-screen picture or a
   video reference; `1K` can be enough for an inset.
-- Check which Endpoint serves `gpt:Image` before choosing that size. Through the starter's
-  `replicate.default`, GPT Image 2 renders only `1K` at `auto`, `1:1`, `3:2` or `2:3`, so the
-  `9:16` / `2K` request above is refused. Either declare `openai.default` and bind GPT Image to it
-  ([Model and provider](../../environment/model-and-provider.md#inputs-some-providers-refuse-until-the-request-changes)),
-  or keep the same prompt and references on `nano:Image` / `nano:ProImage` (Nano Banana), which
-  Replicate serves at `9:16` and `2K`.
+- Check the size before choosing GPT Image. Through `clipkin.default`, GPT Image 2 renders only
+  `1K` at `auto`, `1:1`, `3:2` or `2:3`, so the `9:16` / `2K` request above is refused
+  ([refusals](../../environment/model-and-provider.md#inputs-some-providers-refuse-until-the-request-changes)).
+  Keep the same prompt and references on `nano:Image` / `nano:ProImage` (Nano Banana), which renders
+  `9:16` at `2K`.
 - Aspect ratio and resolution are model parameters (`aspect-ratio`, `resolution`), never words in the
   prompt.
 - The Kit package README is the authority on its assembly interface.

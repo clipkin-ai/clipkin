@@ -46,8 +46,8 @@ English production prompts and spell out the job each reference does.
 `podcast-v1` (from `@clipkin/seedance-kits`) takes two finished camera views and two voices, in matching
 A/B order. Each voice is that host's own accepted Voice Reference, by default a Qwen3 `VoiceDesign`
 clip ([speech packages](../craft/voice-and-performance.md#choose-between-visible-and-audio-only-a-roll));
-on Replicate the two together must stay within Seedance's 15 seconds of reference audio. In the action direction, map the Script's actual Role names onto those hosts explicitly. The
-Script stays the only dialogue text, and one Segment can hold several turns and speaker cuts. Its camera views are person references, which the starter's Replicate Seedance refuses; see
+the two together must stay within Seedance's 15 seconds of reference audio. In the action direction, map the Script's actual Role names onto those hosts explicitly. The
+Script stays the only dialogue text, and one Segment can hold several turns and speaker cuts. Its camera views are person references, which Seedance refuses; see
 [Model and provider](../../environment/model-and-provider.md#inputs-some-providers-refuse-until-the-request-changes)
 for the route before choosing it.
 

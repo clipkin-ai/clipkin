@@ -251,8 +251,7 @@ it automatically.
 
 | Material | Route |
 | --- | --- |
-| Moving subject (the starter's route) | `@clipkin/bria-matting` exposes `RemoveBackground`, served by the starter's `replicate.default`: `<bria:RemoveBackground id="cutout" source={performance.video}/>`, then read `cutout.video`. `format` chooses `WEBM` (VP9 with alpha, default) or `MOV` (ProRes 4444); the cutout is silent unless `preserve-audio="true"`. Sources over 60 seconds are refused before upload: cut a longer performance into parts of at most 60 s, matte each, and place the parts in sequence. |
-| Moving portrait, when `volcengine.default` is declared | `@clipkin/volcengine-matting` exposes `Portrait` with the same `source` and `format` ports (`<matte:Portrait id="cutout" source={performance.video}/>`), takes sources up to 20 minutes, and needs a Volcengine key; it is not in the starter. Only the import, the tag and `preserve-audio` differ from BRIA, so the rest of the Source stays unchanged. |
+| Moving subject (the starter's route) | `@clipkin/bria-matting` exposes `RemoveBackground`, served by the starter's `clipkin.default`: `<bria:RemoveBackground id="cutout" source={performance.video}/>`, then read `cutout.video`. `format` chooses `WEBM` (VP9 with alpha, default) or `MOV` (ProRes 4444); the cutout is silent unless `preserve-audio="true"`. Sources over 60 seconds are refused before upload: cut a longer performance into parts of at most 60 s, matte each, and place the parts in sequence. |
 | Footage that is already transparent | Feed it to Normalize as it is. |
 | Still reference | Removing its background does *not* make generated video transparent. |
 | Fixed flat arrangement of stills | [Image Compose](image-operations.md#flatten-a-fixed-still-image-arrangement), when a flattened image is the output you want. |

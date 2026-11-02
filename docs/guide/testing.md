@@ -101,5 +101,4 @@ The `examples/` folder doubles as larger fixtures:
 - `interview`, `podcast` and `ranking-football`: complete video projects with Sources, Runs and
   stylesheets;
 - `semantic-composition`: components driven by the Script and by plain times;
-- `minimal-author-package`: a complete component package with a preview;
-- `provider-package`: two complete project Providers with their tests.
+- `minimal-author-package`: a complete component package with a preview.

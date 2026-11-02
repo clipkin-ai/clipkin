@@ -34,7 +34,7 @@ To update, run the same two commands again. Release notes are on the
 
 Your agent's own subscription covers the agent. Generating images, video and voices runs through
 your [Clipkin account](https://clipkin.com/account) and is paid with its credits: create a **Local
-access** key there, then run `clipkin auth login replicate.default`. The
+access** key there, then run `clipkin auth login clipkin.default`. The
 [Quickstart](https://clipkin.com/docs/quickstart) walks through it.
 
 ## Help

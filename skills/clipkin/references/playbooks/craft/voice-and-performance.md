@@ -136,8 +136,8 @@ gives a model enough identity without wasting reference length on finished conte
 
 The one exception is a voice you will clone into MiniMax: its `ClonedVoice` refuses samples shorter
 than 10 seconds (or longer than 5 minutes), so write a sample line long enough for 10 to 15 seconds of
-speech. Staying under 15 seconds keeps the same clip usable as a Seedance reference on Replicate,
-which caps reference audio at 15 seconds in total.
+speech. Staying under 15 seconds keeps the same clip usable as a Seedance reference, which
+caps reference audio at 15 seconds in total.
 
 If one video request involves several speakers, give each a compact reference and keep their total length
 within the chosen model's reference-audio limit. That model's documentation is authoritative for exact
@@ -196,7 +196,7 @@ graphics happen to hide someone on camera. Voice Design establishes the reusable
 performs the actual Segment. Casting sample and finished delivery do different jobs.
 
 **Speech packages.** Each speech model family ships as one package with its own Source import. The
-starter Profile's `replicate.default` serves two of them with the one Replicate key, and they are the
+starter Profile's `clipkin.default` serves two of them with the one Replicate key, and they are the
 default choice:
 
 | Package | Surfaces | Reach for it when |
@@ -241,7 +241,7 @@ supplied recording, clone it once, and speak each line on the cloned voice:
 ```
 
 Audition `host-voice.preview` before speaking lines. The clone happens once per Run however many
-lines use it; its price on Replicate is an unverified placeholder (about USD 3 per clone), and how
+lines use it; `clipkin pricing` shows its price, and how
 long MiniMax keeps a cloned voice is not published, so a Run resumed much later may need to clone
 again. `emotion` takes `auto`, `happy`, `calm`, `sad`, `angry`, `fearful`, `disgusted` or
 `surprised`; each line's text is at most 10,000 characters (MiniMax pause markers such as `<#0.5#>`
@@ -266,7 +266,7 @@ limits. Because `<id>.reference` is a plain audio Resource, a voice designed wit
 another package's clone (`VoiceClone`, `ClonedVoice`) or an A-roll video request.
 
 The Source picks the model semantics. Separately, the Runtime Profile picks the Endpoint that performs
-them: `replicate.default`, through the Clipkin account;
+them: `clipkin.default`, through the Clipkin account;
 [Model and provider](../../environment/model-and-provider.md) covers it.
 
 ## Treat narration as a sound-picture relationship

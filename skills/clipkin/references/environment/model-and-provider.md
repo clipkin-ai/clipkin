@@ -34,14 +34,14 @@ whatever its issuer allows; it does not implement that issuer's API.
 | Setting | What is connected | How the user pays | What you do |
 | --- | --- | --- | --- |
 | **Hosted Clipkin workspace** | Every model, already connected | In credits: `clipkin pricing` shows the price and the hold reserved before each Build | Choose models per capability and agree the spend in credits |
-| **The user's own install** | `replicate.default`, connected to their Clipkin account with one personal key ([below](#connect-a-clipkin-account)) | In credits, charged as each generation is submitted and adjusted to the final cost; no reservation step | Connect the account once, then choose models and agree the spend |
+| **The user's own install** | `clipkin.default`, connected to their Clipkin account with one personal key ([below](#connect-a-clipkin-account)) | In credits, charged as each generation is submitted and adjusted to the final cost; no reservation step | Connect the account once, then choose models and agree the spend |
 
-The starter Profile declares one model Endpoint, `replicate.default`, which serves every generation
+The starter Profile declares one model Endpoint, `clipkin.default`, which serves every generation
 capability through the Clipkin account, plus the local Endpoints:
 
 | Endpoint | Package | Serves (capability keys) |
 | --- | --- | --- |
-| `replicate.default` | `@clipkin/provider-replicate` | Seedance video `@clipkin/seedance@1#seedance-2`, `#seedance-2-fast`, `#seedance-2-mini`; Seedream image `@clipkin/seedream@1#seedream-5-lite`; GPT Image `@clipkin/gpt-image@1#gpt-image-2`; Nano Banana `@clipkin/nano-banana@1#nano-banana-2`, `#nano-banana-pro`; Grok Imagine video `@clipkin/grok-imagine@1#grok-imagine-video`; MiniMax H3 `@clipkin/minimax-h3@1#minimax-h3`; Wan image `@clipkin/wan@1#wan-2.7-image`, `#wan-2.7-image-pro`; PixVerse `@clipkin/pixverse@1#pixverse-v6`; Qwen3 TTS voices `@clipkin/qwen3-speech@1#qwen3-tts-voice-design`, `#qwen3-tts-voice-clone`, `#qwen3-tts-custom-voice`; MiniMax speech `@clipkin/minimax-speech@1#speech-2.8-hd`, `#voice-cloning`, `#speech-02-hd`; BRIA background removal `@clipkin/bria-matting@1#video-remove-background`; hosted word timing `@clipkin/whisperx@1#whisperx-alignment` (Scribe v2; the starter binds alignment here) |
+| `clipkin.default` | `@clipkin/provider-clipkin` | Seedance video `@clipkin/seedance@1#seedance-2`, `#seedance-2-fast`, `#seedance-2-mini`; Seedream image `@clipkin/seedream@1#seedream-5-lite`; GPT Image `@clipkin/gpt-image@1#gpt-image-2`; Nano Banana `@clipkin/nano-banana@1#nano-banana-2`, `#nano-banana-pro`; Grok Imagine video `@clipkin/grok-imagine@1#grok-imagine-video`; MiniMax H3 `@clipkin/minimax-h3@1#minimax-h3`; Wan image `@clipkin/wan@1#wan-2.7-image`, `#wan-2.7-image-pro`; PixVerse `@clipkin/pixverse@1#pixverse-v6`; Qwen3 TTS voices `@clipkin/qwen3-speech@1#qwen3-tts-voice-design`, `#qwen3-tts-voice-clone`, `#qwen3-tts-custom-voice`; MiniMax speech `@clipkin/minimax-speech@1#speech-2.8-hd`, `#voice-cloning`, `#speech-02-hd`; BRIA background removal `@clipkin/bria-matting@1#video-remove-background`; hosted word timing `@clipkin/whisperx@1#whisperx-alignment` (Scribe v2; the starter binds alignment here) |
 
 Seedance 2.5, PixVerse C1 and Grok Imagine 1.5 are not offered, and some inputs of the models that
 are offered are refused (see [the refusals below](#inputs-some-providers-refuse-until-the-request-changes)).
@@ -63,28 +63,29 @@ continuation notes. An installed Skill or executable comes with no generation cr
 
 On the user's own install, generation goes to Clipkin, which charges the user's credits. The agent and
 everything local still run on the user's machine. `clipkin runtime init` writes the Profile with
-`replicate.default` already pointed at Clipkin:
+`clipkin.default` already pointed at Clipkin:
 
 ```json
-"replicate.default": {
-  "use": "@clipkin/provider-replicate",
+"clipkin.default": {
+  "use": "@clipkin/provider-clipkin",
   "config": {
-    "baseUrl": "https://clipkin.com/api/local/v1/vendor/replicate",
     "apiKey": { "store": "local", "key": "clipkin.account" }
   }
 }
 ```
 
-That Endpoint only accepts a Clipkin address. An older Profile with another address fails `doctor`
-with `RUNTIME_ENDPOINT_CONFIG_INVALID`: replace that Endpoint with the block above and keep the local
-credential store, the local Endpoints and the bindings.
+It only connects to Clipkin. A Profile made by an earlier release names the same connection
+`replicate.default` (`@clipkin/provider-replicate`) and keeps working with the same key; to use the
+current name, replace that Endpoint with the block above, change any binding that names it, and keep
+the local credential store and the local Endpoints. A Profile that points that older Endpoint at
+another address fails `doctor` with `RUNTIME_ENDPOINT_CONFIG_INVALID`.
 
-1. **Sign in.** The user runs `clipkin auth login replicate.default --clipkin https://clipkin.com`: it
+1. **Sign in.** The user runs `clipkin auth login clipkin.default --clipkin https://clipkin.com`: it
    opens their browser at a short code to approve, and stores the key it is given (the tool then shows
    under Authorized apps on their Account page). Or they create a key on their Account page under Local
-   access, run `clipkin auth login replicate.default` and paste it into the terminal prompt. Never ask
+   access, run `clipkin auth login clipkin.default` and paste it into the terminal prompt. Never ask
    for the key in the conversation or put it in a file.
-2. **Check it.** `clipkin doctor --endpoint replicate.default`.
+2. **Check it.** `clipkin doctor --endpoint clipkin.default`.
 3. **Check the Run.** `clipkin plan <run>` shows any request that would be refused; `clipkin pricing
    <run>` shows the credits. Neither submits generation.
 

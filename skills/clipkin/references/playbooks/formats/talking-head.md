@@ -30,9 +30,9 @@ to addressing the viewer; the generated performance is free to move and react wi
 Cast the vocal appeal with [Voice direction](../craft/voice-direction.md). From then on, every ordinary
 talking clip uses that same image and the same recurring voice reference. Each clip returns to the same
 useful visual premise and adds another piece of the edited performance. By default that reference is
-one Qwen3 `VoiceDesign` clip served by the starter's Replicate Endpoint
+one Qwen3 `VoiceDesign` clip served by the Clipkin account
 ([speech packages](../craft/voice-and-performance.md#choose-between-visible-and-audio-only-a-roll));
-keep it short, since Replicate caps Seedance reference audio at 15 seconds in total.
+keep it short, since Seedance caps reference audio at 15 seconds in total.
 
 **Natural cuts are the goal, not a flaw.** A slight change of pose between passages makes the video
 feel like a creator's edited recording. Because the work wants edited speech rather than a simulated
@@ -48,7 +48,7 @@ installed Kit.
 [Generated video direction](../craft/video-direction.md) explains what the image, the voice, the dialogue
 and the passage direction each contribute. A work with a different camera, cast or performance
 relationship can use another Kit or plain authored direction. The presenter image is a person
-reference (`person-reference="true"`), which the starter's Replicate Seedance refuses; check the
+reference (`person-reference="true"`), which Seedance refuses; check the
 route with `clipkin plan` and see
 [Model and provider](../../environment/model-and-provider.md#inputs-some-providers-refuse-until-the-request-changes)
 for the alternatives before the Kit is chosen.

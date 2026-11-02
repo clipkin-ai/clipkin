@@ -226,9 +226,8 @@ handle the actual footage.
   Direct how much of the body is visible, the performance and the steady backdrop as plain facts of
   this recording. This is a material-preparation decision for that specific use.
 - **Existing footage.** Use a suitable matting capability instead: BRIA background removal
-  (`@clipkin/bria-matting`, served by the starter's `replicate.default`) takes sources of at most 60
-  seconds, so plan a longer performance as parts of 60 s or less and matte each; Volcengine portrait
-  matting (`@clipkin/volcengine-matting`) takes up to 20 minutes once `volcengine.default` is declared.
+  (`@clipkin/bria-matting`, served by `clipkin.default`) takes sources of at most 60 seconds, so
+  plan a longer performance as parts of 60 s or less and matte each.
   An opaque camera view can also stay useful through cropping and reframing.
 
 Transparency in motion needs its own alpha-producing operation. A transparent still used as a
@@ -281,15 +280,15 @@ generated performances, a good balance of capability and cost. Still choose for 
 and for the model services the user has connected in their Runtime Profile;
 [Model and provider](../../environment/model-and-provider.md) covers choosing and connecting them.
 The selected model's installed vocabulary is the authority on resolutions, references and request
-lengths, and the serving Endpoint can be narrower. Through the starter's `replicate.default`,
+lengths, and the serving Endpoint can be narrower. Through the starter's `clipkin.default`,
 Seedance renders 480p, 720p or (with a configured price) 4K but not `1080p`, and refuses every
 image or video reference marked `person-reference="true"`; a Seedance Provider on a Profile-only
 install refuses person references as well unless its host supplies authorized portrait assets. Plan
 a presenter shot that must carry a person's image on a model the connected Endpoint serves with
 references, such as MiniMax H3, or confirm the route with `clipkin plan` first;
 [Model and provider](../../environment/model-and-provider.md#inputs-some-providers-refuse-until-the-request-changes)
-lists the refusals and alternatives. Before committing, `clipkin pricing <run>` shows each request's quote and the Run estimate
-(vendor cost, customer price in credits and the credit hold); see [Builds](../../production/builds.md).
+lists the refusals and alternatives. Before committing, `clipkin pricing <run>` shows each request's price and the Run estimate
+in credits; see [Builds](../../production/builds.md).
 
 Video models usually offer some mix of three relationships. In `@clipkin/seedance` they are three
 Surfaces:

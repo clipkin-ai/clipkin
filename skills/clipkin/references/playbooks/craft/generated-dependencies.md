@@ -82,8 +82,8 @@ For `gpt:Image`, that is the second `gpt:Reference` child:
 
 When the references already establish most of the picture, a short direction for the change may be
 enough. The chosen image package owns the exact reference-input syntax, and the serving Endpoint its
-sizes: this `9:16` / `2K` request needs GPT Image on `openai.default`, since Replicate renders it only
-at `1K` and `auto`, `1:1`, `3:2` or `2:3`
+sizes: GPT Image renders only `1K` at `auto`, `1:1`, `3:2` or `2:3`, so this `9:16` / `2K` request
+goes to Nano Banana instead
 ([refusals](../../environment/model-and-provider.md#inputs-some-providers-refuse-until-the-request-changes)).
 
 Keep useful prompts and source images in the project whenever later views may need the same

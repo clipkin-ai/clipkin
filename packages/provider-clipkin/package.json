@@ -1,5 +1,5 @@
 {
-  "name": "@clipkin/fishaudio-speech",
+  "name": "@clipkin/provider-clipkin",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -10,6 +10,9 @@
     "activation": "./lib/activation.js"
   },
   "dependencies": {
-    "@clipkin/generation": "^1.0.0"
+    "@clipkin/provider-replicate": "^1.0.0"
+  },
+  "peerDependencies": {
+    "@clipkin/runtime-local": "^1.0.0"
   }
 }

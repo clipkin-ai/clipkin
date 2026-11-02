@@ -56,7 +56,7 @@ your Clipkin account and is paid with your credits. On your Clipkin [Account pag
 store the key. Paste it into the terminal when asked, never into the chat:
 
 ```bash
-clipkin auth login replicate.default
+clipkin auth login clipkin.default
 ```
 
 Generation is then charged to your credits as each request is made, and the Account page shows what

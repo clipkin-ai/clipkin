@@ -5,8 +5,8 @@ same four-part shape: Capture, Person, Shot, Setting. The Kit supplies the Captu
 appends `person`, `shot` and `setting` in that order; the
 [Craft page](../image-direction.md#use-a-concrete-capture-direction) covers the assembly. These are
 full-screen portraits, so set `aspect-ratio="9:16"` on `gpt:Image`, normally with `resolution="2K"`.
-That size needs GPT Image served by `openai.default`; the starter's Replicate route renders GPT Image
-only at about one megapixel (see the
+GPT Image renders only about one megapixel here, so at that size use Nano Banana with the same
+prompt and references (see the
 [Craft page](../image-direction.md#use-a-concrete-capture-direction) for the alternatives).
 
 Six portraits are recorded here: the balcony portrait a user chose from production, and five

@@ -14,7 +14,7 @@ explains what it's doing.
 mkdir my-video && cd my-video
 echo '{ "clipkin": { "project": true } }' > package.json
 clipkin runtime init
-clipkin auth login replicate.default
+clipkin auth login clipkin.default
 clipkin runtime up
 # write main.reel and build.slate (below)
 clipkin plan build.slate
@@ -102,7 +102,7 @@ writes a starter one:
 
 | Endpoint | Does | Needs |
 |---|---|---|
-| `replicate.default` | Every generation model: video, images, voices, background removal, and word timing, through your Clipkin account | A Clipkin account key |
+| `clipkin.default` | Every generation model: video, images, voices, background removal, and word timing, through your Clipkin account | A Clipkin account key |
 | `media.local` | Preparing, trimming and mixing media | FFmpeg installed on your computer |
 | `html.local` | Rendering the final video | A headless Chrome, which `clipkin runtime up` downloads |
 | `image.opencv.local` | [Image operations](./images.md) | [uv](https://docs.astral.sh/uv/), which `clipkin runtime up` uses to set up Python |
@@ -119,16 +119,16 @@ Generation runs through your Clipkin account and is paid with your credits. Crea
 [Account page](/account) under **Local access**, then store it:
 
 ```bash
-clipkin auth login replicate.default
+clipkin auth login clipkin.default
 ```
 
 Clipkin asks for the key without showing what you type. Keys are stored per computer, not per
 project: in the system keychain on macOS and Windows, and in private files on Linux. Never paste a
 key into your agent's chat.
 
-- **`clipkin auth status replicate.default`** shows what's stored.
-- **`clipkin doctor --endpoint replicate.default`** checks that it works.
-- **`clipkin auth logout replicate.default`** removes it.
+- **`clipkin auth status clipkin.default`** shows what's stored.
+- **`clipkin doctor --endpoint clipkin.default`** checks that it works.
+- **`clipkin auth logout clipkin.default`** removes it.
 
 Generation is charged to your credits as each request is made. A few things to know:
 
@@ -202,7 +202,7 @@ an existing file is never overwritten. You can also find results in Studio's **O
 | "pricing needs a Runtime" | Run `clipkin runtime init`, or select one with `clipkin runtime use` |
 | `RUNTIME_CREDENTIAL_MISSING` | Store the key with `clipkin auth login <endpoint>` |
 | `MANAGED_PROGRAM_DOWN` | Start the local tools with `clipkin runtime up` |
-| A request listed as `replicate.default: …` with a reason, and "not supported" in the summary | The service won't take it: a model it doesn't offer, a size it doesn't make, or a reference it refuses. Change the request, for example to a model that accepts it |
+| A request listed as `clipkin.default: …` with a reason, and "not supported" in the summary | The service won't take it: a model it doesn't offer, a size it doesn't make, or a reference it refuses. Change the request, for example to a model that accepts it |
 | `UNKNOWN_SOURCE_EXPORT` | A `target` or `satisfy` names an output the `.reel` file doesn't have |
 | "Build … does not contain Output …" | A `build-record` points at the wrong build or output name |
 | `SOURCE_HEADER_MISSING` | The Run file's first line is missing |

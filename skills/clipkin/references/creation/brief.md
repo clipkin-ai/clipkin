@@ -50,10 +50,9 @@ implementation are your job; do not hand them back as questions.
 
 Keep three distinctions visible: your proposed estimate versus the figure the user accepted, an
 estimate versus a hard ceiling, and access (an account that works) versus authority (an agreement to
-spend). `clipkin pricing <run>` gives you the material for the proposal: each request's Provider quote
+spend). `clipkin pricing <run>` gives you the material for the proposal: each request's price in credits
 (exact, an estimate with its stated assumptions, or "not yet measurable" when it depends on media
-the Build will itself produce), followed by a Run estimate with vendor cost in USD, the customer
-price in credits and the credit hold reserved before the Build. Actual charges are metered from each
+the Build will itself produce), followed by a Run estimate with the total price in credits. Actual charges are metered from each
 completed request. Write the agreement in plain language and update it whenever the user changes it,
 so a later conversation inherits exactly the same authority. Record the user's choices about local
 versus hosted execution, and any machine preparation they accepted, in the same plain terms. The
