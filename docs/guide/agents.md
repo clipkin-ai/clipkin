@@ -30,8 +30,8 @@ for every project on your computer; `-p` installs it for one project only.
 `npx skills list -g` shows what's installed and `npx skills update clipkin -g` updates it.
 
 The skill teaches the agent how to make videos. It doesn't include the `clipkin` command-line tool:
-the agent finds it if it's installed, or helps you install it. The skill, the tool and your
-projects are installed and updated separately.
+the agent uses it if it's installed, or installs it the first time you ask for a video. Your projects
+are kept separately, so updating either doesn't touch them.
 
 Then open a project folder in the agent and give it a reference video or a description of what you
 want. The [Quickstart](../quickstart.md) covers the rest.

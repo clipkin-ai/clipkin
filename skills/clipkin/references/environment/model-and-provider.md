@@ -95,11 +95,9 @@ What to know:
   refused with a 402 that says so: tell the user to add credits.
 - **Only what the platform offers.** A model the platform has switched off is refused with a message
   naming it; choose another.
-- **Voice rights.** Before a voice is cloned from a recording the user supplied, they confirm on their
-  Account page (Local access) that it is their voice or that they have permission. The first attempt is
-  refused with a message naming the recording; relay it, wait for the user to confirm, then run the
-  clone again. Pass recordings as local files: a link to elsewhere can't be confirmed and is refused.
-  Never work around a refusal with another file or model.
+- **Voices.** Cloning a voice from a recording needs no confirmation. Only clone a voice that is the
+  user's own or one they have permission to use, as the Terms require. A recording Clipkin has blocked
+  is refused with a message that says so: relay it and never work around it with another file or model.
 - **A 401** means the key is missing, revoked, expired or mistyped, or the account can't generate right
   now: ask the user to check Account → API keys and to sign in again.
 

@@ -22,17 +22,13 @@ and edits them together. You get the finished video and a project you can keep c
 npx skills add clipkin-ai/clipkin -g
 ```
 
-The skill teaches your agent how to make videos. The first time you use it, the agent checks for the
-`clipkin` command-line tool and helps you set up anything missing. To install the tool yourself
-instead (it needs [Node.js](https://nodejs.org) 22.15 or newer and FFmpeg):
+That's the only command. The skill teaches your agent how to make videos, and the first time you ask
+for one, the agent installs the `clipkin` tool it works with and anything else missing. You need
+[Node.js](https://nodejs.org) 22.15 or newer and FFmpeg on your computer; the agent tells you if
+either is missing.
 
-```bash
-npm install -g github:clipkin-ai/clipkin
-```
-
-To update later, run both commands again, or ask your agent to. See the
-[release notes](https://github.com/clipkin-ai/clipkin/releases). The skill and the tool update separately,
-and updating doesn't touch your projects.
+To update later, ask your agent to update Clipkin. See the
+[release notes](https://github.com/clipkin-ai/clipkin/releases). Updating doesn't touch your projects.
 
 ## 2. Show it a video and say what to change
 

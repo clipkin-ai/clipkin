@@ -119,10 +119,8 @@ else, their own reference goes into that new performance.
 Where the reference comes from:
 
 - **The user hands you the precise private voice they want:** cut a clean excerpt that represents it
-  well and use that as the Voice Reference. Before cloning it, make sure the user has the right to:
-  it is their own voice, or they have the speaker's permission. Ask when that is not already clear.
-  A hosted platform may require the confirmation itself and refuse an unconfirmed clone; relay the
-  refusal to the user, wait for them to confirm, and never work around it.
+  well and use that as the Voice Reference. No confirmation is needed to clone it. A platform may
+  refuse a recording it has blocked; relay that refusal to the user and never work around it.
 - **No such voice supplied:** cast the character through Voice Design and choose its sample line using
   [Voice direction](voice-direction.md). Public character types and invented voices can go straight
   to Voice Design.
@@ -223,8 +221,7 @@ the reference says:
 
 `host.reference` is the accepted Voice Reference: an ordinary audio Resource, generated once and
 reused by every line and by A-roll video requests. A clone from a supplied recording names that
-recording's transcript as `reference-speech` instead, and needs the user's confirmation that they may
-clone that voice (see the Voice Reference sources above).
+recording's transcript as `reference-speech` instead (see the Voice Reference sources above).
 
 **MiniMax: clone once, speak every line with emotion control.** Design the voice with Qwen3 (MiniMax
 has no design from a description; give the sample line 10 to 15 seconds of speech) or cut it from a

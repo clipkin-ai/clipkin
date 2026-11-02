@@ -132,8 +132,8 @@ key into your agent's chat.
 
 Generation is charged to your credits as each request is made. A few things to know:
 
-- **Cloning a voice from a recording** asks you to confirm on the Account page that it's your voice
-  or that you have permission. The agent tells you when.
+- **Cloning a voice from a recording** needs no extra step. Only clone your own voice, or one you
+  have the speaker's permission to use.
 - **Errors explain themselves:** 402 means you need more credits, and 401 means the key is missing,
   revoked or mistyped.
 

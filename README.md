@@ -12,22 +12,14 @@ Documentation: <https://clipkin.com/docs>.
 You need [Node.js](https://nodejs.org) 22.15 or newer and [FFmpeg](https://ffmpeg.org/download.html)
 on your `PATH` (on Linux, also `unzip`, used to set up the browser Clipkin renders with).
 
-1. The Skill, for every agent on this computer:
+```bash
+npx skills add clipkin-ai/clipkin -g
+```
 
-   ```bash
-   npx skills add clipkin-ai/clipkin -g
-   ```
+That installs the Skill for every agent on this computer. The first time you ask your agent for a
+video, it installs the `clipkin` tool it works with.
 
-2. The `clipkin` tool:
-
-   ```bash
-   npm install -g github:clipkin-ai/clipkin
-   clipkin version
-   ```
-
-   Or ask your agent: the first time you use the Skill, it checks for `clipkin` and sets it up.
-
-To update, run the same two commands again. Release notes are on the
+To update, ask your agent to update Clipkin. Release notes are on the
 [releases page](https://github.com/clipkin-ai/clipkin/releases).
 
 ## Paying for generation
